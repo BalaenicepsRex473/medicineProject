@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "TXqQU3GaeoqXHbJWV7APqH1POuQ3LmqTta+P3wh0hDE=",
+  "Source": "scrubsAPI",
+  "BasePath": "_content/scrubsAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
