@@ -1,13 +1,17 @@
-﻿namespace scrubsAPI
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace scrubsAPI
 {
     public class Patient
     {
-        private Guid Id { get; }
-        public string Name { get; }
-        public DateTime BirthDay { get; }
 
-        private DateTime CreationTime { get; }
+        [Key] 
+        public Guid id { get; set; }
+        public string name { get; set; }
+        public DateTime? birthDay { get; set; }
 
-        public Sex Sex { get; }
+        public DateTime creationTime { get; set; }
+
+        public Sex gender { get; set; }
     }
 }
