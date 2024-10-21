@@ -6,22 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using scrubsAPI;
+using scrubsAPI.Models;
 
-namespace scrubsAPI
+namespace scrubsAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class patientsController : Controller
+    public class DictionaryController : Controller
     {
         private readonly ScrubsDbContext _context;
-
-        public patientsController(ScrubsDbContext context)
+        public DictionaryController(ScrubsDbContext context)
         {
             _context = context;
         }
 
-
-        [HttpGet("{id}")]
+        [HttpGet("icd10")]
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -42,23 +41,25 @@ namespace scrubsAPI
         [HttpGet()]
         public async Task<IActionResult> Details(int pageNumber = 1, int pageSize = 5)
         {
-            var totalPatients = _context.Patients.Count();
-            var patients = _context.Patients
+            var totalSpecialities = _context.Specialities.Count();
+            var specialities = _context.Specialities
                 .OrderBy(p => p.id)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
 
-            float totPat = totalPatients;
+            float totSpec = totalSpecialities;
             float pgSize = pageSize;
-            var response = new PatientResponceModel
+            var response = new SpecialitiesPagedListModel
             {
-                Patients = patients,
-                Pagination = new PageInfoModel{
+                Specialities = specialities,
+                Pagination = new PageInfoModel
+                {
                     size = pageSize,
-                    count = (int)Math.Ceiling(totPat / pgSize),
-                    current = pageNumber}
+                    count = (int)Math.Ceiling(totSpec / pgSize),
+                    current = pageNumber
+                }
             };
 
             return Ok(response);
@@ -66,29 +67,21 @@ namespace scrubsAPI
 
 
         [HttpPost()]
-        public async Task<IActionResult> Create([FromBody]PatientCreateModel patientDTO)
+        public async Task<IActionResult> Create([FromBody] SpecialityDTO specialityDTO)
         {
-            var patient = new Patient();
+            var speciality = new Speciality();
             if (ModelState.IsValid)
             {
-                patient.id = Guid.NewGuid();
-                if (patientDTO.birthday != null) 
-                {
-                    patient.birthDay = patientDTO.birthday;
-                }
-                patient.name = patientDTO.name;
-                patient.gender = patientDTO.gender;
-                patient.creationTime = DateTime.Now;
-                _context.Add(patient);
+                speciality.id = Guid.NewGuid();
+
+                speciality.name = specialityDTO.name;
+
+                speciality.creationTime = DateTime.Now;
+                _context.Add(speciality);
                 await _context.SaveChangesAsync();
-                return Json(patient.id);
+                return Json(speciality.id);
             }
             return BadRequest();
-        }
-
-        private bool PatientExists(Guid id)
-        {
-            return _context.Patients.Any(e => e.id == id);
         }
     }
 }

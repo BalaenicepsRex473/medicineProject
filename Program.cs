@@ -11,6 +11,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ScrubsDbContext>(
                options => options.UseSqlite("Data Source=Application.db;Cache=Shared"));
+builder.Services.AddCors(
+    options =>
+    {
+        options.AddDefaultPolicy(
+        policy =>
+        {
+            policy
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+        });
+    }
+);
 
 var app = builder.Build();
 

@@ -12,6 +12,6 @@ namespace scrubsAPI
 
         public DateTime creationTime { get; set; }
 
-        public Sex gender { get; set; }
+        public Gender gender { get; set; }
     }
 }

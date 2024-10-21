@@ -6,6 +6,6 @@ namespace scrubsAPI
     {
         [Required] public string name { get; set; }
         public DateTime? birthday { get; set; }
-        [Required] public Sex gender { get; set; }
+        [Required] public Gender gender { get; set; }
     }
 }

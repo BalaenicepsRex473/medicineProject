@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace scrubsAPI
+namespace scrubsAPI.Migrations
 {
     /// <inheritdoc />
     public partial class InnitialCreate : Migration
@@ -35,7 +35,7 @@ namespace scrubsAPI
                 {
                     id = table.Column<Guid>(type: "TEXT", nullable: false),
                     name = table.Column<string>(type: "TEXT", nullable: false),
-                    birthDay = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    birthDay = table.Column<DateTime>(type: "TEXT", nullable: true),
                     creationTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     gender = table.Column<int>(type: "INTEGER", nullable: false)
                 },

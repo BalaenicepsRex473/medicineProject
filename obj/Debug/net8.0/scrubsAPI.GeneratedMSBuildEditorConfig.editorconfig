@@ -26,6 +26,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\c#proj\scrubsAPI
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/c\#proj/scrubsAPI/Views/Icd10/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWNkMTBcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/c\#proj/scrubsAPI/Views/Icd10/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWNkMTBcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/c\#proj/scrubsAPI/Views/Icd10/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWNkMTBcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/c\#proj/scrubsAPI/Views/Icd10/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWNkMTBcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/c\#proj/scrubsAPI/Views/Icd10/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWNkMTBcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/c\#proj/scrubsAPI/Views/Patients/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -9,7 +9,7 @@ namespace scrubsAPI
         public Guid id { get; set; }
         public string name { get; set; }
         public string email { get; set; }
-        public Sex gender { get; set; }
+        public Gender gender { get; set; }
         public DateTime birthday { get; set; }
         public Guid speciality { get; set; }
 

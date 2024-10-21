@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using scrubsAPI;
 
@@ -10,9 +11,11 @@ using scrubsAPI;
 namespace scrubsAPI.Migrations
 {
     [DbContext(typeof(ScrubsDbContext))]
-    partial class ScrubsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241021094731_InnitialCreate")]
+    partial class InnitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -53,28 +56,6 @@ namespace scrubsAPI.Migrations
                     b.ToTable("Doctors");
                 });
 
-            modelBuilder.Entity("scrubsAPI.Models.Icd10", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("code")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("createTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Icd10s");
-                });
-
             modelBuilder.Entity("scrubsAPI.Patient", b =>
                 {
                     b.Property<Guid>("id")
@@ -105,7 +86,7 @@ namespace scrubsAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("creationTime")
+                    b.Property<DateTime>("createTime")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("name")

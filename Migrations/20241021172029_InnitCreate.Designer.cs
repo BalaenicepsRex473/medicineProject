@@ -8,11 +8,11 @@ using scrubsAPI;
 
 #nullable disable
 
-namespace scrubsAPI
+namespace scrubsAPI.Migrations
 {
     [DbContext(typeof(ScrubsDbContext))]
-    [Migration("20241020213409_InnitialCreate")]
-    partial class InnitialCreate
+    [Migration("20241021172029_InnitCreate")]
+    partial class InnitCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,13 +56,35 @@ namespace scrubsAPI
                     b.ToTable("Doctors");
                 });
 
+            modelBuilder.Entity("scrubsAPI.Models.Icd10", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("code")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("createTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Icd10s");
+                });
+
             modelBuilder.Entity("scrubsAPI.Patient", b =>
                 {
                     b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("birthDay")
+                    b.Property<DateTime?>("birthDay")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("creationTime")

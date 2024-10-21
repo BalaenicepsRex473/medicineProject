@@ -6,7 +6,7 @@ namespace scrubsAPI
     {
         [Key]
         public Guid id { get; set; }
-        public DateTime createTime { get; set; }
+        public DateTime creationTime { get; set; }
         public string name { get; set; }
     }
 }
