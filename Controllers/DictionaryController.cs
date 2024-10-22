@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using scrubsAPI;
 using scrubsAPI.Models;
+using scrubsAPI.Schemas;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace scrubsAPI.Controllers
 {
@@ -20,25 +22,90 @@ namespace scrubsAPI.Controllers
             _context = context;
         }
 
-        [HttpGet("icd10")]
-        public async Task<IActionResult> Details(Guid? id)
+        [HttpPost("icd10")]
+        public async Task<IActionResult> Create([FromBody] Icd10DTO icd10DTO)
         {
-            if (id == null)
+            var icd10 = new Icd10();
+            if (ModelState.IsValid)
             {
-                return NotFound();
-            }
+                icd10.code = icd10DTO.code;
 
-            var patient = await _context.Patients
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (patient == null)
-            {
-                return NotFound();
-            }
+                icd10.id = Guid.NewGuid();
 
-            return Json(patient);
+                if (icd10DTO.parentId != null) 
+                {
+                    if (IcdExists(icd10DTO.parentId))
+                    {
+                        icd10.parentId = icd10DTO.parentId;
+                    }
+                    else 
+                    {
+                        return BadRequest("Icd10 do not exist");
+                    }
+                }
+                icd10.name = icd10DTO.name;
+
+                icd10.createTime = DateTime.Now;
+                _context.Add(icd10);
+                await _context.SaveChangesAsync();
+                return Json(icd10.id);
+            }
+            return BadRequest();
         }
 
-        [HttpGet()]
+        [HttpGet("icd10/root")]
+        public async Task<IActionResult> Details()
+        {
+            var rootDiseases = _context.Icd10s
+                .Where(d => d.parentId == null)
+                .Select(d => new Icd10RecordModel
+            {
+                code = d.code,
+                id = d.id,
+                name = d.name,
+                createTime = d.createTime
+            })
+                .ToList();
+            return Ok(rootDiseases);
+        }
+
+        [HttpGet("icd10")]
+        public async Task<IActionResult> Details(string request = "", int pageNumber = 1, int pageSize = 5)
+        {
+            var totalIcds = _context.Icd10s.Count();
+            var Icds = _context.Icd10s
+                .OrderBy(p => p.id)
+                .Where(d => d.code.Contains(request) || d.name.Contains(request))
+                .Select(d => new Icd10RecordModel
+                {
+                    code = d.code,
+                    id = d.id,
+                    name = d.name,
+                    createTime = d.createTime
+                })
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+
+            float totIcds = totalIcds;
+            float pgSize = pageSize;
+            var response = new Icd10SearchModel
+            {
+                Icd10s = Icds,
+                Pagination = new PageInfoModel
+                {
+                    size = pageSize,
+                    count = (int)Math.Ceiling(totIcds / pgSize),
+                    current = pageNumber
+                }
+            };
+
+            return Ok(response);
+        }
+
+
+        [HttpGet("speciality")]
         public async Task<IActionResult> Details(int pageNumber = 1, int pageSize = 5)
         {
             var totalSpecialities = _context.Specialities.Count();
@@ -65,8 +132,12 @@ namespace scrubsAPI.Controllers
             return Ok(response);
         }
 
+        private bool IcdExists(Guid? id)
+        {
+            return _context.Icd10s.Any(e => e.id == id);
+        }
 
-        [HttpPost()]
+        [HttpPost("speciality")]
         public async Task<IActionResult> Create([FromBody] SpecialityDTO specialityDTO)
         {
             var speciality = new Speciality();
