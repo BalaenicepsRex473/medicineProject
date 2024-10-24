@@ -66,6 +66,9 @@ namespace scrubsAPI.Migrations
                     b.Property<DateTime>("createTime")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("idFromJson")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -73,7 +76,12 @@ namespace scrubsAPI.Migrations
                     b.Property<Guid?>("parentId")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("parentIdFromJson")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("id");
+
+                    b.HasIndex("parentId");
 
                     b.ToTable("Icd10s");
                 });
@@ -118,6 +126,15 @@ namespace scrubsAPI.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Specialities");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Models.Icd10", b =>
+                {
+                    b.HasOne("scrubsAPI.Models.Icd10", "parent")
+                        .WithMany()
+                        .HasForeignKey("parentId");
+
+                    b.Navigation("parent");
                 });
 #pragma warning restore 612, 618
         }

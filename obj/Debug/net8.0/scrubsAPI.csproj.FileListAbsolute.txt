@@ -262,3 +262,11 @@ D:\c#proj\scrubsAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cry
 D:\c#proj\scrubsAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 D:\c#proj\scrubsAPI\obj\Debug\net8.0\scrubsAPI.RazorAssemblyInfo.cache
 D:\c#proj\scrubsAPI\obj\Debug\net8.0\scrubsAPI.RazorAssemblyInfo.cs
+D:\c#proj\scrubsAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\c#proj\scrubsAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\c#proj\scrubsAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\c#proj\scrubsAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\c#proj\scrubsAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\c#proj\scrubsAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\c#proj\scrubsAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\c#proj\scrubsAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

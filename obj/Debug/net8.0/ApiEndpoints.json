@@ -1,22 +1,6 @@
 [
   {
     "ContainingType": "scrubsAPI.Controllers.DictionaryController",
-    "Method": "Create",
-    "RelativePath": "api/Dictionary/icd10",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "icd10DTO",
-        "Type": "scrubsAPI.Icd10DTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "scrubsAPI.Controllers.DictionaryController",
     "Method": "Details",
     "RelativePath": "api/Dictionary/icd10",
     "HttpMethod": "GET",
@@ -83,6 +67,48 @@
       {
         "Name": "specialityDTO",
         "Type": "scrubsAPI.SpecialityDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "scrubsAPI.Controllers.DoctorController",
+    "Method": "Login",
+    "RelativePath": "api/Doctor/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctor",
+        "Type": "scrubsAPI.LoginCredentialsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "scrubsAPI.Controllers.DoctorController",
+    "Method": "Logout",
+    "RelativePath": "api/Doctor/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "scrubsAPI.Controllers.DoctorController",
+    "Method": "Register",
+    "RelativePath": "api/Doctor/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorDTO",
+        "Type": "scrubsAPI.DoctorRegisterModel",
         "IsRequired": true
       }
     ],

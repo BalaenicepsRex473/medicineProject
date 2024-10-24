@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,36 +23,50 @@ namespace scrubsAPI.Controllers
             _context = context;
         }
 
-        [HttpPost("icd10")]
-        public async Task<IActionResult> Create([FromBody] Icd10DTO icd10DTO)
-        {
-            var icd10 = new Icd10();
-            if (ModelState.IsValid)
-            {
-                icd10.code = icd10DTO.code;
+        //Чисто парсинг icd с сайта миндздрава 
+        //[HttpPost("parseAll")]
+        //public async Task<IActionResult> PostICD10Data([FromBody] List<Icd10JsonDTO> icd10Data)
+        //{
+        //    var icd10Codes = icd10Data.Select(code => new Icd10
+        //    {
+        //        id = Guid.NewGuid(),
+        //        code = code.MKB_CODE,
+        //        name = code.MKB_NAME,
+        //        createTime = DateTime.UtcNow,
+        //        idFromJson = code.ID,
+        //        parentIdFromJson = code.ID_PARENT.HasValue ? code.ID_PARENT.Value : null
+        //    }).ToList();
 
-                icd10.id = Guid.NewGuid();
 
-                if (icd10DTO.parentId != null) 
-                {
-                    if (IcdExists(icd10DTO.parentId))
-                    {
-                        icd10.parentId = icd10DTO.parentId;
-                    }
-                    else 
-                    {
-                        return BadRequest("Icd10 do not exist");
-                    }
-                }
-                icd10.name = icd10DTO.name;
+        //    await PopulateDatabase(_context, icd10Codes);
 
-                icd10.createTime = DateTime.Now;
-                _context.Add(icd10);
-                await _context.SaveChangesAsync();
-                return Json(icd10.id);
-            }
-            return BadRequest();
-        }
+        //    return Ok();
+        //}
+
+
+        //private static async Task PopulateDatabase(ScrubsDbContext context, List<Icd10> icd10Data)
+        //{
+
+        //    await context.Icd10s.AddRangeAsync(icd10Data);
+        //    await context.SaveChangesAsync();
+
+
+        //    foreach (var code in icd10Data)
+        //    {
+        //        if (code.parentIdFromJson.HasValue)
+        //        {
+
+        //            var parent = await context.Icd10s.FirstOrDefaultAsync(p => p.idFromJson == code.parentIdFromJson);
+        //            if (parent != null)
+        //            {
+        //                code.parentId = parent.id;
+        //                code.parent = parent;
+        //            }
+        //        }
+        //    }
+        //    await context.SaveChangesAsync();
+        //}
+
 
         [HttpGet("icd10/root")]
         public async Task<IActionResult> Details()
@@ -75,7 +90,7 @@ namespace scrubsAPI.Controllers
             var totalIcds = _context.Icd10s.Count();
             var Icds = _context.Icd10s
                 .OrderBy(p => p.id)
-                .Where(d => d.code.Contains(request) || d.name.Contains(request))
+                .Where(d => d.code == request | d.name.Contains(request))
                 .Select(d => new Icd10RecordModel
                 {
                     code = d.code,
@@ -130,11 +145,6 @@ namespace scrubsAPI.Controllers
             };
 
             return Ok(response);
-        }
-
-        private bool IcdExists(Guid? id)
-        {
-            return _context.Icd10s.Any(e => e.id == id);
         }
 
         [HttpPost("speciality")]
