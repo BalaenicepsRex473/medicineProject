@@ -12,7 +12,7 @@ namespace scrubsAPI
         public Gender gender { get; set; }
         public DateTime birthday { get; set; }
         public Guid speciality { get; set; }
-
+        public DateTime createTime { get; set; }
         public string phone { get; set; }
         public string password { get; set; }
     }

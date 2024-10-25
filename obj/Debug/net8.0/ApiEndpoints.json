@@ -74,6 +74,22 @@
   },
   {
     "ContainingType": "scrubsAPI.Controllers.DoctorController",
+    "Method": "EditProfile",
+    "RelativePath": "api/Doctor/edit",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctor",
+        "Type": "scrubsAPI.DoctorEditModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "scrubsAPI.Controllers.DoctorController",
     "Method": "Login",
     "RelativePath": "api/Doctor/login",
     "HttpMethod": "POST",
@@ -92,6 +108,16 @@
     "ContainingType": "scrubsAPI.Controllers.DoctorController",
     "Method": "Logout",
     "RelativePath": "api/Doctor/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "scrubsAPI.Controllers.DoctorController",
+    "Method": "GetProfile",
+    "RelativePath": "api/Doctor/profile",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

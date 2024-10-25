@@ -10,7 +10,7 @@ using scrubsAPI;
 
 namespace scrubsAPI
 {
-    [Authorize]
+
     [ApiController]
     [Route("api/[controller]")]
     public class patientsController : Controller
@@ -22,7 +22,7 @@ namespace scrubsAPI
             _context = context;
         }
 
-
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> Details(Guid? id)
         {
@@ -40,7 +40,7 @@ namespace scrubsAPI
 
             return Json(patient);
         }
-
+        [Authorize]
         [HttpGet()]
         public async Task<IActionResult> Details(int pageNumber = 1, int pageSize = 5)
         {
@@ -66,7 +66,7 @@ namespace scrubsAPI
             return Ok(response);
         }
 
-
+        [Authorize]
         [HttpPost()]
         public async Task<IActionResult> Create([FromBody]PatientCreateModel patientDTO)
         {

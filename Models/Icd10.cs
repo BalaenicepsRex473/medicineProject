@@ -10,8 +10,6 @@
 
         public int? parentIdFromJson { get; set; }
         public int? idFromJson { get; set; }
-
-
         public Icd10? parent { get; set; } = null;
 
     }

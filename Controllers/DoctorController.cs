@@ -8,6 +8,7 @@ using System.Text;
 using System;
 using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
+using scrubsAPI.Schemas;
 
 namespace scrubsAPI.Controllers
 {
@@ -26,8 +27,8 @@ namespace scrubsAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] DoctorRegisterModel doctorDTO)
         {
-            var existingDoctor = await _context.Doctors.FirstOrDefaultAsync(d => d.name == doctorDTO.name);
-            if (existingDoctor != null)
+            var existingEmail = await _context.Doctors.FirstOrDefaultAsync(d => d.email == doctorDTO.email);
+            if (existingEmail != null)
             {
                 return BadRequest();
             }
@@ -35,7 +36,8 @@ namespace scrubsAPI.Controllers
                 email = doctorDTO.email,
                 gender = doctorDTO.gender,
                 speciality = doctorDTO.speciality,
-                id = new Guid(), name = doctorDTO.name, phone = doctorDTO.phone };
+                id = new Guid(), name = doctorDTO.name, phone = doctorDTO.phone,
+                createTime = DateTime.Now};
 
             var passwordHash = HashPassword(doctorDTO.password);
             doctor.password = passwordHash;
@@ -63,7 +65,7 @@ namespace scrubsAPI.Controllers
                 return Unauthorized();
             }
 
-            var claims = new List<Claim> { new Claim(ClaimTypes.Name, user.name) };
+            var claims = new List<Claim> { new Claim(ClaimTypes.Name, user.id.ToString()) };
 
             var jwt = new JwtSecurityToken(
             issuer: AuthOptions.ISSUER,
@@ -82,6 +84,54 @@ namespace scrubsAPI.Controllers
             return Ok();
         }
 
+        [HttpPost("profile")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> GetProfile()
+        {
+            var user = Guid.Parse(HttpContext.User.Identity.Name);
+            var doctor = _context.Doctors.FirstOrDefault(d => d.id == user);
+            var doc = new DoctorModel
+            {
+                email = doctor.email,
+                name = doctor.name,
+                creteTime = doctor.createTime,
+                birthsday = doctor.birthday,
+                id = doctor.id,
+                gender = doctor.gender,
+                phone = doctor.phone,
+            };
+            return Ok(doc);
+        }
+
+        [HttpPut("edit")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> EditProfile([FromBody] DoctorEditModel doctor)
+        {
+            var user = Guid.Parse(HttpContext.User.Identity.Name);
+            if (ModelState.IsValid) {
+                var doc = _context.Doctors.FirstOrDefault(d => d.id == user);
+
+                if (doctor.birthday.HasValue)
+                {
+                    doc.birthday = doctor.birthday.Value;
+                }
+
+                if (doctor.phone != null)
+                {
+                    doc.phone = doctor.phone;
+                }
+
+                doc.email = doctor.email;
+                doc.gender = doctor.gender;
+                doc.email = doctor.name;
+
+                _context.Update(doc);
+                await _context.SaveChangesAsync();
+                return Ok(doc);
+            }
+            return BadRequest();
+
+        }
         private string HashPassword(string password)
         {
             using var sha256 = SHA256.Create();

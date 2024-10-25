@@ -26,6 +26,9 @@ namespace scrubsAPI.Migrations
                     b.Property<DateTime>("birthday")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("createTime")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("TEXT");
