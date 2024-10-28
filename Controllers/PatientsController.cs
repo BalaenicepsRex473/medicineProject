@@ -225,7 +225,7 @@ namespace scrubsAPI
                     diagnosis = diagnoses
                 })
                 .Skip((page - 1) * size)
-                .Take(page)
+                .Take(size)
             .ToList();
 
 

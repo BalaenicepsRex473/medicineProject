@@ -158,6 +158,75 @@ namespace scrubsAPI
             return Ok(ins);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> EditInspection(Guid id, [FromBody] InspectionEditModel inspectionEdition)
+        {
+            var inspection = await _context.Inspections
+                .FirstOrDefaultAsync(i => i.id == id);
+
+            if (inspectionEdition.conclusion.ToString() == "Recovery")
+            {
+                if (inspectionEdition.nextVisitDate.HasValue || inspectionEdition.deathTime.HasValue)
+                {
+                    return BadRequest("Patient has recoveried, he has no death time or next visit");
+                }
+                inspection.nextVisitDate = null;
+                inspection.deathTime = null;
+            }
+            else if (inspectionEdition.conclusion.ToString() == "Death")
+            {
+                if (inspectionEdition.nextVisitDate.HasValue || !inspectionEdition.deathTime.HasValue)
+                {
+                    return BadRequest("Patient has dead, cant have next visit");
+                }
+                inspection.deathTime = inspectionEdition.deathTime;
+            }
+            else
+            {
+                if (!inspectionEdition.nextVisitDate.HasValue || inspectionEdition.deathTime.HasValue)
+                {
+                    return BadRequest("Patient is ill, he cant be dead");
+                }
+                inspection.nextVisitDate = inspectionEdition.nextVisitDate;
+            }
+            if (inspectionEdition.anamesis != null)
+            {
+                inspection.anamesis = inspectionEdition.anamesis;
+            }
+            inspection.complaints = inspectionEdition.complaints;
+            inspection.conclusion = inspectionEdition.conclusion;
+
+            var diagnoses = await _context.Diagnoses
+               .Where(p => p.inspection.id == inspection.id)
+               .ToListAsync();
+
+            foreach (var diagnosis in diagnoses) 
+            {
+                _context.Diagnoses.Remove(diagnosis);
+                await _context.SaveChangesAsync();
+
+            }
+
+            foreach (var diagnosis in inspectionEdition.diagnoses)
+            {
+                var diagnose = new Diagnosis
+                {
+                    id = Guid.NewGuid(),
+                    icdDiagnosis = await _context.Icd10s.FirstOrDefaultAsync(m => m.id == diagnosis.icdDiagnosisId),
+                    inspection = inspection,
+                    type = diagnosis.type,
+                    description = diagnosis.description,
+                    createTime = DateTime.Now
+                };
+                _context.Add(diagnose);
+                await _context.SaveChangesAsync();
+
+            }
+            _context.Update(inspection);
+            
+            return Ok(); 
+        }
+
         [HttpGet("{id}/chain")]
         public async Task<IActionResult> GetInspectionChain(Guid id)
         {
@@ -193,7 +262,7 @@ namespace scrubsAPI
 
             var diagnoses = await _context.Diagnoses
                 .Include(i => i.icdDiagnosis)
-                .Where(p => p.inspection.patient.id == ins.patient.id)
+                .Where(p => p.inspection.id == ins.id)
                 .Select(p => new DiagnosisModel
                 {
                     id = p.id,
