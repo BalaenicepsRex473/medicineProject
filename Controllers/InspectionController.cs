@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol;
 using scrubsAPI;
+using scrubsAPI.Migrations;
 using scrubsAPI.Models;
 using scrubsAPI.Schemas;
 
@@ -151,11 +152,97 @@ namespace scrubsAPI
                 anamesis = inspec.anamesis,
                 complaints = inspec.complaints,
                 treatment = inspec.treatment
-        };
-           
+            };
 
-        return Ok(ins);
+
+            return Ok(ins);
         }
 
+        [HttpGet("{id}/chain")]
+        public async Task<IActionResult> GetInspectionChain(Guid id)
+        {
+            var inspection = await _context.Inspections
+                            .FirstOrDefaultAsync(i => i.id == id);
+
+            if (inspection == null)
+            {
+                return NotFound();
+            }
+
+            var answer = await GetInspectionChainRec(id);
+            return Ok(answer);
+        }
+
+
+        private async Task<List<InspectionPreviewModel>> GetInspectionChainRec(Guid id)
+        {
+            var result = new List<InspectionPreviewModel>();
+
+
+            var ins = await _context.Inspections
+                            .Include(i => i.doctor)
+                            .Include(i => i.patient)
+                            .Include(i => i.previousInspection)
+                            .FirstOrDefaultAsync(p => p.id == id);
+
+
+            if (ins == null)
+            {
+                return result;
+            }
+
+            var diagnoses = await _context.Diagnoses
+                .Include(i => i.icdDiagnosis)
+                .Where(p => p.inspection.patient.id == ins.patient.id)
+                .Select(p => new DiagnosisModel
+                {
+                    id = p.id,
+                    createTime = p.createTime,
+                    code = p.icdDiagnosis.code,
+                    name = p.icdDiagnosis.name,
+                    description = p.description,
+                    type = p.type
+                }).ToListAsync();
+
+
+            var insp = new InspectionPreviewModel
+            {
+                id = ins.id,
+                createTime = ins.createTime,
+                previousId = ins.previousInspection?.id,
+                date = ins.date,
+                conclusion = ins.conclusion,
+                doctorId = ins.doctor.id,
+                doctor = ins.doctor.name,
+                patientId = ins.patient.id,
+                patient = ins.patient.name,
+                hasChain = ins.nextVisitDate != null,
+                hasNested = ins.previousInspection != null,
+                diagnosis = diagnoses
+            };
+
+
+            result.Add(insp);
+
+
+            if (ins.nextVisitDate != null)
+            {
+                var nextInsp = await _context.Inspections
+                    .Include(i => i.doctor)
+                    .Include(i => i.patient)
+                    .Include(i => i.previousInspection)
+                    .FirstOrDefaultAsync(p => p.previousInspection.id == ins.id);
+
+
+                if (nextInsp != null)
+                {
+                    var subsequentResults = await GetInspectionChainRec(nextInsp.id);
+                    result.AddRange(subsequentResults);
+                }
+            }
+
+            return result;
+
+        }
     }
 }
