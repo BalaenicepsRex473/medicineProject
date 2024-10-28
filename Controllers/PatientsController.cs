@@ -244,5 +244,35 @@ namespace scrubsAPI
 
             return Ok(response);
         }
+
+        [Authorize]
+        [HttpGet("{id}/inspections/search")]
+        public async Task<IActionResult> SearchInspection(Guid id, string request)
+        {
+            var diagnoses = _context.Diagnoses.Where(p => p.inspection.patient.id == id && (p.icdDiagnosis.code == request | p.icdDiagnosis.name.Contains(request)))
+                    .Select(p => new DiagnosisModel
+                    {
+                        id = p.id,
+                        createTime = p.createTime,
+                        code = p.icdDiagnosis.code,
+                        name = p.icdDiagnosis.name,
+                        description = p.description,
+                        type = p.type
+
+                    }).ToList();
+
+            var response = _context.Inspections
+                .Where(d => d.patient.id == id)
+                .Select(d => new InspectionShortModel
+                {
+                    id = d.id,
+                    createTime = d.createTime,
+                    date = d.date,
+                    diagnoses = diagnoses
+                }).ToList();
+
+
+            return Ok(response);
+        }
     }
 }

@@ -141,6 +141,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "scrubsAPI.InspectionController",
+    "Method": "GetInspection",
+    "RelativePath": "api/Inspection/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "scrubsAPI.PatientController",
     "Method": "GetPatients",
     "RelativePath": "api/Patient",
@@ -235,6 +251,27 @@
       {
         "Name": "size",
         "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "scrubsAPI.PatientController",
+    "Method": "SearchInspection",
+    "RelativePath": "api/Patient/{id}/inspections/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
