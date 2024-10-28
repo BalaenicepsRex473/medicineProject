@@ -5,10 +5,10 @@ namespace scrubsAPI
 {
     public class DoctorEditModel
     {
-        [Required] public string email { get; set; }
+        [Required][EmailAddress] public string email { get; set; }
         [Required] public string name { get; set; }
         public DateTime? birthday { get; set; }
         [Required] public Gender gender { get; set; }
-        public string? phone { get; set; }
+        [Phone]public string? phone { get; set; }
     }
 }

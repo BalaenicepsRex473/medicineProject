@@ -4,7 +4,7 @@ namespace scrubsAPI
 {
     public class LoginCredentialsModel
     {
-        [Required] public string email { get; set; }
+        [Required][EmailAddress] public string email { get; set; }
         [Required] public string password { get; set; }
     }
 }

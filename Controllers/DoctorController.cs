@@ -9,6 +9,7 @@ using System;
 using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using scrubsAPI.Schemas;
+using NuGet.Protocol;
 
 namespace scrubsAPI.Controllers
 {
@@ -17,7 +18,6 @@ namespace scrubsAPI.Controllers
     public class DoctorController : ControllerBase
     {
         private readonly ScrubsDbContext _context;
-
         public DoctorController(ScrubsDbContext context)
         {
             _context = context;
@@ -35,7 +35,7 @@ namespace scrubsAPI.Controllers
             var doctor = new Doctor { birthday = doctorDTO.birthsday,
                 email = doctorDTO.email,
                 gender = doctorDTO.gender,
-                speciality = doctorDTO.speciality,
+                speciality = await _context.Specialities.FirstOrDefaultAsync(d => d.id == doctorDTO.speciality),
                 id = new Guid(), name = doctorDTO.name, phone = doctorDTO.phone,
                 createTime = DateTime.Now};
 
@@ -81,6 +81,7 @@ namespace scrubsAPI.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult Logout()
         {
+
             return Ok();
         }
 
@@ -116,7 +117,7 @@ namespace scrubsAPI.Controllers
                     doc.birthday = doctor.birthday.Value;
                 }
 
-                if (doctor.phone != null)
+                 if (doctor.phone != null)
                 {
                     doc.phone = doctor.phone;
                 }

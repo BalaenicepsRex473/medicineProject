@@ -1,15 +1,17 @@
-﻿namespace scrubsAPI
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace scrubsAPI
 {
     public class DoctorRegisterModel
     {
-        public string name { get; set; }
-        public string password { get; set; }
-        public string email { get; set; }
+        [Required]public string name { get; set; }
+        [Required]public string password { get; set; }
+        [Required][EmailAddress] public string email { get; set; }
         public DateTime birthsday { get; set; }
-        public Gender gender { get; set; }
+        [Required]public Gender gender { get; set; }
 
-        public string phone { get; set; }
+        [Phone]public string phone { get; set; }
 
-        public Guid speciality { get; set; }
+        [Required]public Guid speciality { get; set; }
     }
 }

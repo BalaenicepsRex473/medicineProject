@@ -17,6 +17,45 @@ namespace scrubsAPI.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
 
+            modelBuilder.Entity("scrubsAPI.BannedToken", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("token")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.ToTable("BannedTokens");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Consultation", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("createTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("inspectionid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("specialityid")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("inspectionid");
+
+                    b.HasIndex("specialityid");
+
+                    b.ToTable("Consultations");
+                });
+
             modelBuilder.Entity("scrubsAPI.Doctor", b =>
                 {
                     b.Property<Guid>("id")
@@ -48,12 +87,134 @@ namespace scrubsAPI.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("speciality")
+                    b.Property<Guid>("specialityid")
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
 
+                    b.HasIndex("specialityid");
+
                     b.ToTable("Doctors");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Inspection", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("anamesis")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("complaints")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("conclusion")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("createTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("deathTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("doctorid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("nextVisitDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("patientid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("previousInspectionid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("treatment")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("doctorid");
+
+                    b.HasIndex("patientid");
+
+                    b.HasIndex("previousInspectionid");
+
+                    b.ToTable("Inspections");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Models.Comment", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("authorid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("consultationid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("content")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("createTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("modifiedTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("parentCommentid")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("authorid");
+
+                    b.HasIndex("consultationid");
+
+                    b.HasIndex("parentCommentid");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Models.Diagnosis", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("createTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("icdDiagnosisid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("inspectionid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("type")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("icdDiagnosisid");
+
+                    b.HasIndex("inspectionid");
+
+                    b.ToTable("Diagnoses");
                 });
 
             modelBuilder.Entity("scrubsAPI.Models.Icd10", b =>
@@ -129,6 +290,103 @@ namespace scrubsAPI.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Specialities");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Consultation", b =>
+                {
+                    b.HasOne("scrubsAPI.Inspection", "inspection")
+                        .WithMany()
+                        .HasForeignKey("inspectionid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("scrubsAPI.Speciality", "speciality")
+                        .WithMany()
+                        .HasForeignKey("specialityid");
+
+                    b.Navigation("inspection");
+
+                    b.Navigation("speciality");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Doctor", b =>
+                {
+                    b.HasOne("scrubsAPI.Speciality", "speciality")
+                        .WithMany()
+                        .HasForeignKey("specialityid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("speciality");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Inspection", b =>
+                {
+                    b.HasOne("scrubsAPI.Doctor", "doctor")
+                        .WithMany()
+                        .HasForeignKey("doctorid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("scrubsAPI.Patient", "patient")
+                        .WithMany()
+                        .HasForeignKey("patientid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("scrubsAPI.Inspection", "previousInspection")
+                        .WithMany()
+                        .HasForeignKey("previousInspectionid");
+
+                    b.Navigation("doctor");
+
+                    b.Navigation("patient");
+
+                    b.Navigation("previousInspection");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Models.Comment", b =>
+                {
+                    b.HasOne("scrubsAPI.Doctor", "author")
+                        .WithMany()
+                        .HasForeignKey("authorid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("scrubsAPI.Consultation", "consultation")
+                        .WithMany()
+                        .HasForeignKey("consultationid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("scrubsAPI.Models.Comment", "parentComment")
+                        .WithMany()
+                        .HasForeignKey("parentCommentid");
+
+                    b.Navigation("author");
+
+                    b.Navigation("consultation");
+
+                    b.Navigation("parentComment");
+                });
+
+            modelBuilder.Entity("scrubsAPI.Models.Diagnosis", b =>
+                {
+                    b.HasOne("scrubsAPI.Models.Icd10", "icdDiagnosis")
+                        .WithMany()
+                        .HasForeignKey("icdDiagnosisid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("scrubsAPI.Inspection", "inspection")
+                        .WithMany()
+                        .HasForeignKey("inspectionid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("icdDiagnosis");
+
+                    b.Navigation("inspection");
                 });
 
             modelBuilder.Entity("scrubsAPI.Models.Icd10", b =>
