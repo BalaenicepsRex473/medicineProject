@@ -1,4 +1,4 @@
-﻿namespace scrubsAPI.Schemas
+﻿namespace scrubsAPI
 {
     public class PatientModel
     {

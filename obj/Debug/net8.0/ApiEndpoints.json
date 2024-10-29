@@ -357,6 +357,31 @@
         "Name": "pageSize",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "scheduledVisits",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "onlyMine",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "conclusion",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "patientSorting",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -37,34 +38,131 @@ namespace scrubsAPI
                 return NotFound();
             }
 
-            var patient = await _context.Patients
+            var p = await _context.Patients
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (patient == null)
+            if (p == null)
             {
                 return NotFound();
             }
+            var result = new PatientModel
+            {
+                birthday = p.birthDay,
+                createTime = p.creationTime,
+                gender = p.gender,
+                id = p.id,
+                name = p.name,
+            };
 
-            return Json(patient);
+
+            return Json(result);
         }
 
         [ProducesResponseType<PatientResponceModel>(200)]
         [Authorize]
         [HttpGet()]
-        public async Task<IActionResult> GetPatients(int pageNumber = 1, int pageSize = 5)
+        public async Task<IActionResult> GetPatients([FromQuery]int pageNumber = 1, int pageSize = 5, string name = "", bool scheduledVisits = false, bool onlyMine = false, Conclusion? conclusion = null, PatientSorting? patientSorting = null)
         {
-            var totalPatients = _context.Patients.Count();
-            var patients = _context.Patients
-                .OrderBy(p => p.id)
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
+            
 
+            //.OrderBy(p => p.id)
+            //.Skip((pageNumber - 1) * pageSize)
+            //.take(pageSize)
+            //.tolist();
+            var patients = _context.Patients.Select(p => new PatientModel
+            {
+                birthday = p.birthDay,
+                createTime = p.creationTime,
+                gender = p.gender,
+                id = p.id,
+                name = p.name,
+            });
+            if (scheduledVisits)
+            {
+                patients = patients
+                    .Where(patient => _context.Inspections
+                        .Include(p => p.patient)
+                        .Any(p => p.nextVisitDate != null && p.patient.id == patient.id));
+            }
 
-            float totPat = totalPatients;
+            if (onlyMine) 
+            {
+                var user = Guid.Parse(HttpContext.User.Identity.Name);
+                var doctor = _context.Doctors.FirstOrDefault(d => d.id == user);
+                patients = patients
+                    .Where(patient => _context.Inspections
+                        .Include(p => p.patient)
+                        .Include(p => p.doctor)
+                        .Any(p => p.doctor == doctor && p.patient.id == patient.id));
+
+            }
+
+            if (conclusion.HasValue)
+            {
+                switch (conclusion)
+                {
+                    case Conclusion.Disease:
+                        {
+                        patients = patients
+                            .Where(patient => _context.Inspections
+                                .Include(p => p.patient)
+                                .Any(p => p.conclusion == Conclusion.Disease && p.patient.id == patient.id));
+                        break;
+                        }
+                    case Conclusion.Death:
+                        {
+                        patients = patients
+                            .Where(patient => _context.Inspections
+                                .Include(p => p.patient)
+                                .Any(p => p.conclusion == Conclusion.Death && p.patient.id == patient.id));
+                        break;
+                        }
+                    case Conclusion.Recovery:
+                        {
+                        patients = patients
+                            .Where(patient => _context.Inspections
+                            .Include(p => p.patient)
+                            .Any(p => p.conclusion == Conclusion.Recovery && p.patient.id == patient.id));
+                        break;
+                        }
+                }
+            }
+
+            if (patientSorting.HasValue)
+            {
+                switch(patientSorting)
+                   {
+                    case PatientSorting.NameAsc:
+                        patients = patients.OrderBy(p => p.name);
+                        break;
+                    case PatientSorting.NameDesc:
+                        patients = patients.OrderBy(p => p.name).Reverse();
+                        break;
+                    case PatientSorting.CreateAsc:
+                        patients = patients.OrderBy(p => p.createTime);
+                        break;
+                    case PatientSorting.CreateDesc:
+                        patients = patients.OrderBy(p => p.createTime).Reverse();
+                        break;
+                    case PatientSorting.InspectionAsc:
+                        patients = patients.OrderBy(p => p);
+                        break;
+                    case PatientSorting.InspectionDesc:
+                        patients = patients.OrderBy(p => p).Reverse();
+                        break;
+                }
+
+            }
+
+            if (name != "") 
+            {
+                patients = patients.Where(p => p.name.ToLower().Contains(name));
+            }
+
+            float totPat = patients.Count();
             float pgSize = pageSize;
             var response = new PatientResponceModel
             {
-                Patients = patients,
+                Patients = await patients.ToListAsync(),
                 Pagination = new PageInfoModel
                 {
                     size = pageSize,
