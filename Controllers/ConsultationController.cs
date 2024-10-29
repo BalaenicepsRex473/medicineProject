@@ -5,10 +5,12 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using scrubsAPI;
 using scrubsAPI.Models;
 using scrubsAPI.Schemas;
@@ -93,6 +95,11 @@ namespace scrubsAPI
             {
                 return NotFound();
             }
+
+            if (consultation.speciality != doctor.speciality || consultation.inspection.doctor != doctor)
+            {
+                return Forbid("User doesn't have add comment to consultation (unsuitable specialty and not the inspection author)");
+            }
             var comment = new Comment
             {
                 id = Guid.NewGuid(),
@@ -116,6 +123,32 @@ namespace scrubsAPI
             return Json(comment.id);
         }
 
+
+        [Authorize]
+        [HttpPost("/comment/{id}")]
+        public async Task<IActionResult> EditComment(Guid id, [FromBody] CommentEditModel commentEditing)
+        {
+
+
+            var comment = await _context.Comments
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (comment == null)
+            {
+                return NotFound();
+            }
+
+            var user = Guid.Parse(HttpContext.User.Identity.Name);
+            var doctor = _context.Doctors.FirstOrDefault(d => d.id == user);
+
+            if (doctor != comment.author)
+            {
+                return Forbid("User is not the author of the comment");
+            }
+
+            _context.Update(comment);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
 
     }
 }
