@@ -158,6 +158,7 @@ namespace scrubsAPI
             return Ok(ins);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> EditInspection(Guid id, [FromBody] InspectionEditModel inspectionEdition)
         {
@@ -227,6 +228,7 @@ namespace scrubsAPI
             return Ok(); 
         }
 
+        [Authorize]
         [HttpGet("{id}/chain")]
         public async Task<IActionResult> GetInspectionChain(Guid id)
         {

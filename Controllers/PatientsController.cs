@@ -247,9 +247,9 @@ namespace scrubsAPI
 
         [Authorize]
         [HttpGet("{id}/inspections/search")]
-        public async Task<IActionResult> SearchInspection(Guid id, string request)
+        public async Task<IActionResult> SearchInspection(Guid id, string request = "")
         {
-            var diagnoses = _context.Diagnoses.Where(p => p.inspection.patient.id == id && (p.icdDiagnosis.code == request | p.icdDiagnosis.name.Contains(request)))
+            var diagnoses = _context.Diagnoses.Where(p => p.inspection.patient.id == id && (p.icdDiagnosis.code == request | p.icdDiagnosis.name.ToLower().Contains(request.ToLower())))
                     .Select(p => new DiagnosisModel
                     {
                         id = p.id,

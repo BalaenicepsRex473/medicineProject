@@ -90,7 +90,7 @@ namespace scrubsAPI.Controllers
             var totalIcds = _context.Icd10s.Count();
             var Icds = _context.Icd10s
                 .OrderBy(p => p.id)
-                .Where(d => d.code == request || d.name.Contains(request))
+                .Where(d => d.code == request || d.name.ToLower().Contains(request.ToLower()))
                 .Select(d => new Icd10RecordModel
                 {
                     code = d.code,
