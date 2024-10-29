@@ -27,6 +27,7 @@ namespace scrubsAPI
             _context = context;
         }
 
+        [ProducesResponseType<Patient>(200)]
         [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPatient(Guid? id)
@@ -45,6 +46,8 @@ namespace scrubsAPI
 
             return Json(patient);
         }
+
+        [ProducesResponseType<PatientResponceModel>(200)]
         [Authorize]
         [HttpGet()]
         public async Task<IActionResult> GetPatients(int pageNumber = 1, int pageSize = 5)
@@ -73,6 +76,7 @@ namespace scrubsAPI
             return Ok(response);
         }
 
+        [ProducesResponseType<Guid>(200)]
         [Authorize]
         [HttpPost()]
         public async Task<IActionResult> CreatePatient([FromBody] PatientCreateModel patientDTO)
@@ -90,11 +94,13 @@ namespace scrubsAPI
                 patient.creationTime = DateTime.Now;
                 _context.Add(patient);
                 await _context.SaveChangesAsync();
-                return Json(patient.id);
+                return Ok(patient.id);
             }
             return BadRequest();
         }
 
+
+        [ProducesResponseType<Guid>(200)]
         [Authorize]
         [HttpPost("{id}/inspections")]
         public async Task<IActionResult> CreateInspection(Guid id, [FromBody] InspectionCreateModel inspectionDTO)
@@ -184,11 +190,12 @@ namespace scrubsAPI
                 await _context.SaveChangesAsync();
 
 
-                return Ok(Json(inspection.id));
+                return Ok(inspection.id);
             }
             return BadRequest();
         }
 
+        [ProducesResponseType<InspectionPagedListModel>(200)]
         [Authorize]
         [HttpGet("{id}/inspections")]
         public async Task<IActionResult> GetInspection(Guid id, int page = 1, int size = 5)
@@ -245,6 +252,8 @@ namespace scrubsAPI
             return Ok(response);
         }
 
+
+        [ProducesResponseType<List<InspectionShortModel>>(200)]
         [Authorize]
         [HttpGet("{id}/inspections/search")]
         public async Task<IActionResult> SearchInspection(Guid id, string request = "")

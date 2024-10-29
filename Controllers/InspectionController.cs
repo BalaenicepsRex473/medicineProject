@@ -31,6 +31,7 @@ namespace scrubsAPI
             _context = context;
         }
 
+        [ProducesResponseType<InspectionModel>(200)]
         [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetInspection(Guid id)
@@ -228,6 +229,7 @@ namespace scrubsAPI
             return Ok(); 
         }
 
+        [ProducesResponseType<List<InspectionPreviewModel>>(200)]
         [Authorize]
         [HttpGet("{id}/chain")]
         public async Task<IActionResult> GetInspectionChain(Guid id)

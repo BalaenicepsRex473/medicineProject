@@ -29,6 +29,7 @@ namespace scrubsAPI
             _context = context;
         }
 
+        [ProducesResponseType<ConsultationModel>(200)]
         [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetConsultation(Guid? id)
@@ -77,9 +78,10 @@ namespace scrubsAPI
                 comments = comments,
             };
 
-            return Json(result);
+            return Ok(result);
         }
 
+        [ProducesResponseType<Guid>(200)]
         [Authorize]
         [HttpPost("{id}/comment")]
         public async Task<IActionResult> AddComment(Guid id, [FromBody] CommentCreateModel commentCreation)
@@ -120,12 +122,12 @@ namespace scrubsAPI
             }
             _context.Comments.Add(comment);
             await _context.SaveChangesAsync();
-            return Json(comment.id);
+            return Ok(comment.id);
         }
 
 
         [Authorize]
-        [HttpPost("/comment/{id}")]
+        [HttpPut("/comment/{id}")]
         public async Task<IActionResult> EditComment(Guid id, [FromBody] CommentEditModel commentEditing)
         {
 

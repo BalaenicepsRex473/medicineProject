@@ -68,6 +68,7 @@ namespace scrubsAPI.Controllers
         //}
 
 
+        [ProducesResponseType<Icd10RecordModel>(200)]
         [HttpGet("icd10/root")]
         public async Task<IActionResult> Details()
         {
@@ -84,6 +85,7 @@ namespace scrubsAPI.Controllers
             return Ok(rootDiseases);
         }
 
+        [ProducesResponseType<Icd10SearchModel>(200)]
         [HttpGet("icd10")]
         public async Task<IActionResult> Details(string request = "", int pageNumber = 1, int pageSize = 5)
         {
@@ -119,7 +121,7 @@ namespace scrubsAPI.Controllers
             return Ok(response);
         }
 
-
+        [ProducesResponseType<SpecialitiesPagedListModel>(200)]
         [HttpGet("speciality")]
         public async Task<IActionResult> Details(int pageNumber = 1, int pageSize = 5)
         {
@@ -147,6 +149,7 @@ namespace scrubsAPI.Controllers
             return Ok(response);
         }
 
+        [ProducesResponseType<Guid>(200)]
         [HttpPost("speciality")]
         public async Task<IActionResult> Create([FromBody] SpecialityDTO specialityDTO)
         {
@@ -160,7 +163,7 @@ namespace scrubsAPI.Controllers
                 speciality.creationTime = DateTime.Now;
                 _context.Add(speciality);
                 await _context.SaveChangesAsync();
-                return Json(speciality.id);
+                return Ok(speciality.id);
             }
             return BadRequest();
         }

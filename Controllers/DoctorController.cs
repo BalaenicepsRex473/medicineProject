@@ -24,6 +24,7 @@ namespace scrubsAPI.Controllers
 
         }
 
+        [ProducesResponseType<TokenResponceModel>(200)]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] DoctorRegisterModel doctorDTO)
         {
@@ -46,9 +47,25 @@ namespace scrubsAPI.Controllers
             _context.Doctors.Add(doctor);
             await _context.SaveChangesAsync();
 
-            return Ok();
+            var claims = new List<Claim> { new Claim(ClaimTypes.Name, doctor.id.ToString()) };
+
+            var jwt = new JwtSecurityToken(
+            issuer: AuthOptions.ISSUER,
+            audience: AuthOptions.AUDIENCE,
+            claims: claims,
+            expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(15)),
+            signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+
+            var token = new TokenResponceModel
+            {
+                token = new JwtSecurityTokenHandler().WriteToken(jwt),
+            };
+
+            return Ok(token);
         }
 
+
+        [ProducesResponseType<TokenResponceModel>(200)]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginCredentialsModel doctor)
         {
@@ -74,7 +91,11 @@ namespace scrubsAPI.Controllers
             expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(15)),
             signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
 
-            return Ok(new JwtSecurityTokenHandler().WriteToken(jwt));
+            var token = new TokenResponceModel
+            {
+                token = new JwtSecurityTokenHandler().WriteToken(jwt),
+            };
+            return Ok(token);
         }
 
         [HttpPost("logout")]
@@ -85,6 +106,8 @@ namespace scrubsAPI.Controllers
             return Ok();
         }
 
+
+        [ProducesResponseType<DoctorModel>(200)]
         [HttpPost("profile")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetProfile()
@@ -128,7 +151,7 @@ namespace scrubsAPI.Controllers
 
                 _context.Update(doc);
                 await _context.SaveChangesAsync();
-                return Ok(doc);
+                return Ok();
             }
             return BadRequest();
 
