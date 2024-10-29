@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using scrubsAPI.Schemas;
 using NuGet.Protocol;
+using scrubsAPI.Authorization;
 
 namespace scrubsAPI.Controllers
 {
@@ -100,10 +101,20 @@ namespace scrubsAPI.Controllers
 
         [HttpPost("logout")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
 
-            return Ok();
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            var bannedToken = new BannedToken
+            {
+                id = Guid.NewGuid(),
+                token = token,
+            };
+            _context.Add(bannedToken);
+            await _context.SaveChangesAsync();
+
+            return Ok("You're logged off");
         }
 
 

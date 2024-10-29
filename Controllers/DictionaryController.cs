@@ -82,7 +82,7 @@ namespace scrubsAPI.Controllers
                 createTime = d.createTime
             })
                 .ToList();
-            return Ok(rootDiseases);
+            return Ok(rootDiseases); 
         }
 
         [ProducesResponseType<Icd10SearchModel>(200)]
@@ -151,7 +151,7 @@ namespace scrubsAPI.Controllers
 
         [ProducesResponseType<Guid>(200)]
         [HttpPost("speciality")]
-        public async Task<IActionResult> Create([FromBody] SpecialityDTO specialityDTO)
+        public async Task<IActionResult> Create([FromBody] SpecialityCreateModel specialityDTO)
         {
             var speciality = new Speciality();
             if (ModelState.IsValid)

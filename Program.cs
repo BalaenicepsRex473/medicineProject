@@ -4,11 +4,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;  
+using Microsoft.AspNetCore.Identity;
 using System.Text;
 using System;
 using Microsoft.OpenApi.Models;
 using scrubsAPI.Schemas;
+using scrubsAPI.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,6 +71,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<CheckingForBannedToken>();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
