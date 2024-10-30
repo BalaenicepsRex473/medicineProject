@@ -1,11 +1,12 @@
 ﻿using scrubsAPI.Schemas;
+using System.ComponentModel.DataAnnotations;
 
 namespace scrubsAPI
 {
     public class InspectionModel
     {
-        public Guid id { get; set; }
-        public DateTime createTime { get; set; }
+        [Required] public Guid id { get; set; }
+        [Required] public DateTime createTime { get; set; }
         public DateTime? date { get; set; }
         public string? anamesis { get; set; }
         public string? complaints { get; set; }

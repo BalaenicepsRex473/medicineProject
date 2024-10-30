@@ -209,20 +209,28 @@ namespace scrubsAPI
 
             }
 
+            var Mains = 0;
             foreach (var diagnosis in inspectionEdition.diagnoses)
             {
-                var diagnose = new Diagnosis
+                if (diagnosis.type == DiagnosisType.Main && Mains == 0)
                 {
-                    id = Guid.NewGuid(),
-                    icdDiagnosis = await _context.Icd10s.FirstOrDefaultAsync(m => m.id == diagnosis.icdDiagnosisId),
-                    inspection = inspection,
-                    type = diagnosis.type,
-                    description = diagnosis.description,
-                    createTime = DateTime.Now
-                };
-                _context.Add(diagnose);
-                await _context.SaveChangesAsync();
-
+                    Mains++;
+                    var diagnose = new Diagnosis
+                    {
+                        id = Guid.NewGuid(),
+                        icdDiagnosis = await _context.Icd10s.FirstOrDefaultAsync(m => m.id == diagnosis.icdDiagnosisId),
+                        inspection = inspection,
+                        type = diagnosis.type,
+                        description = diagnosis.description,
+                        createTime = DateTime.Now
+                    };
+                    _context.Add(diagnose);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    return BadRequest("There can be only one main diagnosis");
+                }
             }
             _context.Update(inspection);
             

@@ -127,7 +127,7 @@ namespace scrubsAPI
 
 
         [Authorize]
-        [HttpPut("/comment/{id}")]
+        [HttpPut("comment/{id}")]
         public async Task<IActionResult> EditComment(Guid id, [FromBody] CommentEditModel commentEditing)
         {
 

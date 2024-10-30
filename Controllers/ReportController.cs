@@ -7,6 +7,7 @@ using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -29,11 +30,11 @@ namespace scrubsAPI
         }
 
         [ProducesResponseType<IcdRootsReportModel>(200)]
-
+        [Authorize]
         [HttpGet("icdrootsreport")]
-        public async Task<IActionResult> GetIcdRootsReport([FromQuery] List<Guid> icdRoots, DateTime start, DateTime end)
+        public async Task<IActionResult> GetIcdRootsReport([FromQuery] List<Guid> icdRoots, [FromQuery] DateTime start, [FromQuery] DateTime end)
         {
-            if (icdRoots == null || !icdRoots.Any())
+            if (icdRoots == null || !icdRoots.Any() || !ModelState.IsValid)
             {
                 return BadRequest("Some fields in request are invalid");
             }

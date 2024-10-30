@@ -1,9 +1,11 @@
-﻿namespace scrubsAPI
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace scrubsAPI
 {
     public class DiagnosisCreateModel
     {
-        public Guid icdDiagnosisId { get; set; }
+        [Required] public Guid icdDiagnosisId { get; set; }
         public string description { get; set; }
-        public DiagnosisType type { get; set; }
+        [Required] public DiagnosisType type { get; set; }
     }
 }

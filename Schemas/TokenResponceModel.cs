@@ -1,7 +1,9 @@
-﻿namespace scrubsAPI.Schemas
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace scrubsAPI.Schemas
 {
     public class TokenResponceModel
     {
-        public string token { get; set; }
+        [Required] public string token { get; set; }
     }
 }

@@ -1,8 +1,10 @@
-﻿namespace scrubsAPI
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace scrubsAPI
 {
     public class ConsultationCreateModel
     {
-        public Guid specialityId { get; set; }
-        public InspectionCommentCreateModel comment { get; set; }
+        [Required] public Guid specialityId { get; set; }
+        [Required] public InspectionCommentCreateModel comment { get; set; }
     }
 }
