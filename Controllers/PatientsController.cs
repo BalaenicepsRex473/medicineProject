@@ -64,10 +64,7 @@ namespace scrubsAPI
         {
             
 
-            //.OrderBy(p => p.id)
-            //.Skip((pageNumber - 1) * pageSize)
-            //.take(pageSize)
-            //.tolist();
+
             var patients = _context.Patients.Select(p => new PatientModel
             {
                 birthday = p.birthDay,
@@ -144,10 +141,23 @@ namespace scrubsAPI
                         patients = patients.OrderBy(p => p.createTime).Reverse();
                         break;
                     case PatientSorting.InspectionAsc:
-                        patients = patients.OrderBy(p => p);
+                        patients = patients.Join(_context.Inspections,
+                            patient => patient.id,
+                            i => i.patient.id,
+                            (patient, i) => new { patient = patient, date = i.date })
+                                .OrderBy(ex => ex.date)
+                                .Select(p => p.patient)
+                                .Distinct();
                         break;
                     case PatientSorting.InspectionDesc:
-                        patients = patients.OrderBy(p => p).Reverse();
+                        patients = patients.Join(_context.Inspections,
+                            patient => patient.id,
+                            i => i.patient.id,
+                            (patient, i) => new { patient = patient, date = i.date })
+                                .OrderBy(ex => ex.date).Reverse()
+                                .Select(p => p.patient)
+                                .Distinct();
+
                         break;
                 }
 
@@ -162,7 +172,11 @@ namespace scrubsAPI
             float pgSize = pageSize;
             var response = new PatientResponceModel
             {
-                Patients = await patients.ToListAsync(),
+                Patients = await patients
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync(),
+
                 Pagination = new PageInfoModel
                 {
                     size = pageSize,
