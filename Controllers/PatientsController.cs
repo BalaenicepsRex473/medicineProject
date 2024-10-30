@@ -54,7 +54,7 @@ namespace scrubsAPI
             };
 
 
-            return Json(result);
+            return Ok(result);
         }
 
         [ProducesResponseType<PatientResponceModel>(200)]
@@ -307,6 +307,7 @@ namespace scrubsAPI
             return BadRequest();
         }
 
+        [Authorize]
         [ProducesResponseType<InspectionPagedListModel>(200)]
         [HttpGet("{id}/inspections")]
         public async Task<IActionResult> GetInspection(Guid id, [FromQuery] List<Guid>? icdRoots = null, bool grouped = false, int page = 1, int size = 5)

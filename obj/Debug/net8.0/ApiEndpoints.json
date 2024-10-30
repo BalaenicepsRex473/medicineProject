@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "scrubsAPI.ConsultationController",
-    "Method": "GetInspection",
+    "Method": "GetInspections",
     "RelativePath": "api/Consultation",
     "HttpMethod": "GET",
     "IsController": true,
@@ -588,6 +588,42 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[scrubsAPI.InspectionShortModel, scrubsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "scrubsAPI.ReportController",
+    "Method": "GetIcdRootsReport",
+    "RelativePath": "api/Report/icdrootsreport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "icdRoots",
+        "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "start",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "end",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "scrubsAPI.Schemas.IcdRootsReportModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
