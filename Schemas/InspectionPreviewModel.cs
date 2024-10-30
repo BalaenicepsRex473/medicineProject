@@ -13,7 +13,7 @@ namespace scrubsAPI
         public string doctor { get; set; }
         public Guid patientId { get; set; }
         public string patient { get; set;}
-        public List<DiagnosisModel> diagnosis { get; set; }
+        public DiagnosisModel? diagnosis { get; set; }
         public bool hasChain { get; set; }
         public bool hasNested { get; set;}
     }

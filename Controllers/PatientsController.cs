@@ -60,7 +60,7 @@ namespace scrubsAPI
         [ProducesResponseType<PatientResponceModel>(200)]
         [Authorize]
         [HttpGet()]
-        public async Task<IActionResult> GetPatients([FromQuery]int pageNumber = 1, int pageSize = 5, string name = "", bool scheduledVisits = false, bool onlyMine = false, Conclusion? conclusion = null, PatientSorting? patientSorting = null)
+        public async Task<IActionResult> GetPatients([FromQuery] string? name, int pageNumber = 1, int pageSize = 5, bool scheduledVisits = false, bool onlyMine = false, Conclusion? conclusion = null, PatientSorting? patientSorting = null)
         {
             
 
@@ -163,9 +163,9 @@ namespace scrubsAPI
 
             }
 
-            if (name != "") 
+            if (name != null) 
             {
-                patients = patients.Where(p => p.name.ToLower().Contains(name));
+                patients = patients.Where(p => p.name.ToLower().Contains(name.ToLower()));
             }
 
             float totPat = patients.Count();
@@ -308,62 +308,82 @@ namespace scrubsAPI
         }
 
         [ProducesResponseType<InspectionPagedListModel>(200)]
-        [Authorize]
         [HttpGet("{id}/inspections")]
-        public async Task<IActionResult> GetInspection(Guid id, int page = 1, int size = 5)
+        public async Task<IActionResult> GetInspection(Guid id, [FromQuery] List<Guid>? icdRoots = null, bool grouped = false, int page = 1, int size = 5)
         {
-            var diagnoses = _context.Diagnoses.Where(p => p.inspection.patient.id == id)
-                    .Select(p => new DiagnosisModel
-                    {
-                        id = p.id,
-                        createTime = p.createTime,
-                        code = p.icdDiagnosis.code,
-                        name = p.icdDiagnosis.name,
-                        description = p.description,
-                        type = p.type
+            var patient = await _context.Patients.FirstOrDefaultAsync(p => p.id == id);
+            if (patient == null)
+            {
+                return NotFound();
+            }
 
-                    }).ToList();
+  
+            var diagnoses = _context.Diagnoses
+                .Include(p => p.icdDiagnosis)
+                .ThenInclude(p => p.parent) 
+                .Include(p => p.inspection)
+                .ThenInclude(p => p.patient) 
+                .Where(p => p.inspection.patient.id == id && p.type == DiagnosisType.Main);
 
-            var totalIns = _context.Inspections.Where(d => d.patient.id == id).Count();
-            var ins = _context.Inspections
-                .OrderBy(d => d.id)
-                .Where(d => d.patient.id == id)
+
+            if (icdRoots != null)
+            {
+                diagnoses = diagnoses.Where(p => icdRoots.Contains(p.icdDiagnosis.id));
+            }
+
+            var diagnosesList = await diagnoses.ToListAsync();
+
+
+            var inspectionsQuery = _context.Inspections
+                .Include(d => d.patient)
+                .Include(d => d.doctor)
+                .Include(d => d.previousInspection) 
+                .Where(d => d.patient.id == id).ToList();
+
+
+            if (grouped)
+            {
+                inspectionsQuery = inspectionsQuery.Where(p => p.previousInspection == null).ToList();
+            }
+
+
+            var inspectionsWithDiagnosis = inspectionsQuery
                 .Select(d => new InspectionPreviewModel
                 {
                     id = d.id,
                     createTime = d.createTime,
-                    previousId = d.previousInspection.id,
+                    previousId = d.previousInspection != null ? d.previousInspection.id : null,
                     date = d.date,
                     conclusion = d.conclusion,
                     doctorId = d.doctor.id,
                     doctor = d.doctor.name,
                     patientId = d.patient.id,
                     patient = d.patient.name,
-                    hasChain = d.nextVisitDate != null ? true : false,
-                    hasNested = d.previousInspection != null ? true : false,
-                    diagnosis = diagnoses
-                })
-                .Skip((page - 1) * size)
-                .Take(size)
-            .ToList();
+                    hasChain = d.nextVisitDate != null,
+                    hasNested = d.previousInspection != null,
+                    diagnosis = diagnosesList.Where(p => p.inspection.id == d.id).Select(p => toDiagnosisModel(p)).FirstOrDefault(), 
+                });
 
+  
+            var filteredInspections = inspectionsWithDiagnosis.Where(p => p.diagnosis != null);
 
-            float totIns = totalIns;
-            float pgSize = page;
+            float totalInspections = filteredInspections.Count();
+            float pageSize = size;
             var response = new InspectionPagedListModel
             {
-                inspections = ins,
+                inspections = filteredInspections
+                    .Skip((page - 1) * size)
+                    .Take(size).ToList(),
                 pagination = new PageInfoModel
                 {
                     size = size,
-                    count = (int)Math.Ceiling(totIns / pgSize),
+                    count = (int)Math.Ceiling(totalInspections / pageSize),
                     current = page
                 }
             };
 
             return Ok(response);
         }
-
 
         [ProducesResponseType<List<InspectionShortModel>>(200)]
         [Authorize]
@@ -394,6 +414,19 @@ namespace scrubsAPI
 
 
             return Ok(response);
+        }
+
+        private DiagnosisModel toDiagnosisModel(Diagnosis? diagnosis)
+        {
+            return new DiagnosisModel
+            {
+                id = diagnosis.id,
+                createTime = diagnosis.createTime,
+                description = diagnosis.description,
+                code = diagnosis.icdDiagnosis.code,
+                name= diagnosis.icdDiagnosis.name,
+                type = diagnosis.type
+            };
         }
     }
 }

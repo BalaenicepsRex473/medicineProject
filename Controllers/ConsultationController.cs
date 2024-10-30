@@ -152,5 +152,91 @@ namespace scrubsAPI
             return Ok();
         }
 
+        [ProducesResponseType<InspectionPagedListModel>(200)]
+        [HttpGet("")]
+        public async Task<IActionResult> GetInspections([FromQuery] List<Guid>? icdRoots = null, bool grouped = false, int page = 1, int size = 5)
+        {
+
+
+            var diagnoses = _context.Diagnoses
+                .Include(p => p.icdDiagnosis)
+                .ThenInclude(p => p.parent)
+                .Include(p => p.inspection)
+                .ThenInclude(p => p.patient)
+                .Where(p => p.type == DiagnosisType.Main);
+
+
+            if (icdRoots != null)
+            {
+                diagnoses = diagnoses.Where(p => icdRoots.Contains(p.icdDiagnosis.id));
+            }
+
+            var diagnosesList = await diagnoses.ToListAsync();
+
+
+            var inspectionsQuery = _context.Inspections
+                .Include(d => d.patient)
+                .Include(d => d.doctor)
+                .Include(d => d.previousInspection)
+                .ToList();
+
+
+            if (grouped)
+            {
+                inspectionsQuery = inspectionsQuery.Where(p => p.previousInspection == null).ToList();
+            }
+
+
+            var inspectionsWithDiagnosis = inspectionsQuery
+                .Select(d => new InspectionPreviewModel
+                {
+                    id = d.id,
+                    createTime = d.createTime,
+                    previousId = d.previousInspection != null ? d.previousInspection.id : null,
+                    date = d.date,
+                    conclusion = d.conclusion,
+                    doctorId = d.doctor.id,
+                    doctor = d.doctor.name,
+                    patientId = d.patient.id,
+                    patient = d.patient.name,
+                    hasChain = d.nextVisitDate != null,
+                    hasNested = d.previousInspection != null,
+                    diagnosis = diagnosesList.Where(p => p.inspection.id == d.id).Select(p => toDiagnosisModel(p)).FirstOrDefault(),
+                });
+
+
+            var filteredInspections = inspectionsWithDiagnosis.Where(p => p.diagnosis != null);
+
+            float totalInspections = filteredInspections.Count();
+            float pageSize = size;
+            var response = new InspectionPagedListModel
+            {
+                inspections = filteredInspections
+                    .Skip((page - 1) * size)
+                    .Take(size).ToList(),
+                pagination = new PageInfoModel
+                {
+                    size = size,
+                    count = (int)Math.Ceiling(totalInspections / pageSize),
+                    current = page
+                }
+            };
+
+            return Ok(response);
+        }
+
+        private DiagnosisModel toDiagnosisModel(Diagnosis? diagnosis)
+        {
+            return new DiagnosisModel
+            {
+                id = diagnosis.id,
+                createTime = diagnosis.createTime,
+                description = diagnosis.description,
+                code = diagnosis.icdDiagnosis.code,
+                name = diagnosis.icdDiagnosis.name,
+                type = diagnosis.type
+            };
+        }
+
     }
 }

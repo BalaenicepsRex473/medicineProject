@@ -1,6 +1,47 @@
 [
   {
     "ContainingType": "scrubsAPI.ConsultationController",
+    "Method": "GetInspection",
+    "RelativePath": "api/Consultation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "icdRoots",
+        "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "grouped",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "scrubsAPI.InspectionPagedListModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "scrubsAPI.ConsultationController",
     "Method": "GetConsultation",
     "RelativePath": "api/Consultation/{id}",
     "HttpMethod": "GET",
@@ -349,6 +390,11 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "pageNumber",
         "Type": "System.Int32",
         "IsRequired": false
@@ -356,11 +402,6 @@
       {
         "Name": "pageSize",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "name",
-        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -491,6 +532,16 @@
         "Name": "id",
         "Type": "System.Guid",
         "IsRequired": true
+      },
+      {
+        "Name": "icdRoots",
+        "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "grouped",
+        "Type": "System.Boolean",
+        "IsRequired": false
       },
       {
         "Name": "page",

@@ -264,19 +264,6 @@ namespace scrubsAPI
                 return result;
             }
 
-            var diagnoses = await _context.Diagnoses
-                .Include(i => i.icdDiagnosis)
-                .Where(p => p.inspection.id == ins.id)
-                .Select(p => new DiagnosisModel
-                {
-                    id = p.id,
-                    createTime = p.createTime,
-                    code = p.icdDiagnosis.code,
-                    name = p.icdDiagnosis.name,
-                    description = p.description,
-                    type = p.type
-                }).ToListAsync();
-
 
             var insp = new InspectionPreviewModel
             {
@@ -291,7 +278,9 @@ namespace scrubsAPI
                 patient = ins.patient.name,
                 hasChain = ins.nextVisitDate != null,
                 hasNested = ins.previousInspection != null,
-                diagnosis = diagnoses
+                diagnosis = toDiagnosisModel(_context.Diagnoses
+                .Include(p => p.icdDiagnosis)
+                .FirstOrDefault(p => p.inspection.patient.id == ins.patient.id && p.type == DiagnosisType.Main)),
             };
 
 
@@ -317,5 +306,20 @@ namespace scrubsAPI
             return result;
 
         }
+
+        private DiagnosisModel toDiagnosisModel(Diagnosis diagnosis)
+        {
+            return new DiagnosisModel
+            {
+                id = diagnosis.id,
+                createTime = diagnosis.createTime,
+                description = diagnosis.description,
+                code = diagnosis.icdDiagnosis.code,
+                name = diagnosis.icdDiagnosis.name,
+                type = diagnosis.type
+            };
+        }
+
     }
+
 }
