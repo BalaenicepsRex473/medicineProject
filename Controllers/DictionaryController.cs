@@ -70,7 +70,7 @@ namespace scrubsAPI.Controllers
 
         [ProducesResponseType<Icd10RecordModel>(200)]
         [HttpGet("icd10/root")]
-        public async Task<IActionResult> Details()
+        public async Task<IActionResult> GetIcdRoots()
         {
             var rootDiseases = _context.Icd10s
                 .Where(d => d.parentId == null)
@@ -87,9 +87,9 @@ namespace scrubsAPI.Controllers
 
         [ProducesResponseType<Icd10SearchModel>(200)]
         [HttpGet("icd10")]
-        public async Task<IActionResult> Details(string request = "", int pageNumber = 1, int pageSize = 5)
+        public async Task<IActionResult> GetConcreteIcds(string request = "", int pageNumber = 1, int pageSize = 5)
         {
-            var totalIcds = _context.Icd10s.Count();
+            var totalIcds = _context.Icd10s.Where(d => d.code == request || d.name.ToLower().Contains(request.ToLower())).Count();
             var Icds = _context.Icd10s
                 .OrderBy(p => p.id)
                 .Where(d => d.code == request || d.name.ToLower().Contains(request.ToLower()))
@@ -123,11 +123,11 @@ namespace scrubsAPI.Controllers
 
         [ProducesResponseType<SpecialitiesPagedListModel>(200)]
         [HttpGet("speciality")]
-        public async Task<IActionResult> Details(int pageNumber = 1, int pageSize = 5)
+        public async Task<IActionResult> GetSpecialities(string name = "", int pageNumber = 1, int pageSize = 5)
         {
-            var totalSpecialities = _context.Specialities.Count();
+            var totalSpecialities = _context.Specialities.Where(p => p.name.ToLower().Contains(name)).Count();
             var specialities = _context.Specialities
-                .OrderBy(p => p.id)
+                .Where(p => p.name.ToLower().Contains(name))
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();

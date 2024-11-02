@@ -11,6 +11,9 @@ using Microsoft.EntityFrameworkCore;
 using scrubsAPI.Schemas;
 using NuGet.Protocol;
 using scrubsAPI.Authorization;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace scrubsAPI.Controllers
 {
@@ -32,8 +35,16 @@ namespace scrubsAPI.Controllers
             var existingEmail = await _context.Doctors.FirstOrDefaultAsync(d => d.email == doctorDTO.email);
             if (existingEmail != null)
             {
-                return BadRequest();
+                return BadRequest("This email has already used");
             }
+            var hasNumber = new Regex(@"\d");
+
+
+            if (!hasNumber.IsMatch(doctorDTO.password))
+            {
+                return BadRequest("Password have to had at least 1 number");
+            }
+
             var doctor = new Doctor { birthday = doctorDTO.birthsday,
                 email = doctorDTO.email,
                 gender = doctorDTO.gender,
@@ -74,13 +85,13 @@ namespace scrubsAPI.Controllers
             var user = await _context.Doctors.FirstOrDefaultAsync(d => d.email == doctor.email);
             if (user == null)
             {
-                return Unauthorized();
+                return Unauthorized("wrong email or password");
             }
 
 
             if (!VerifyPassword(doctor.password, user.password))
             {
-                return Unauthorized();
+                return Unauthorized("wrong email or password");
             }
 
             var claims = new List<Claim> { new Claim(ClaimTypes.Name, user.id.ToString()) };

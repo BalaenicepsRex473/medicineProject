@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "A6EjHm7MbifAAT6eE6JPxOGK7EoNwyS1SeLxxqLEOKjeY+JQ5eg82kvZdob7zItuXuVPdfQ5EiPC5pNyfzB89Q==",
+  "dgSpecHash": "YHz5fYT7BW+Nb2QwyF6IAz9HCGLkQb5rC/VN34wbHQ3/2BU8mX+0Fi1z4B4KItt6R5TTELwAJRtUrHdqOJOafg==",
   "success": true,
   "projectFilePath": "D:\\c#proj\\scrubsAPI\\scrubsAPI.csproj",
   "expectedPackageFiles": [
@@ -144,6 +144,7 @@
     "C:\\Users\\User\\.nuget\\packages\\nuget.projectmodel\\6.11.0\\nuget.projectmodel.6.11.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\nuget.protocol\\6.11.0\\nuget.protocol.6.11.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\nuget.versioning\\6.11.0\\nuget.versioning.6.11.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\quartz\\3.13.1\\quartz.3.13.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.6\\sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",

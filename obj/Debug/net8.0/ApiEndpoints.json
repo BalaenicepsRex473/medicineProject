@@ -120,7 +120,7 @@
   },
   {
     "ContainingType": "scrubsAPI.Controllers.DictionaryController",
-    "Method": "Details",
+    "Method": "GetConcreteIcds",
     "RelativePath": "api/Dictionary/icd10",
     "HttpMethod": "GET",
     "IsController": true,
@@ -156,7 +156,7 @@
   },
   {
     "ContainingType": "scrubsAPI.Controllers.DictionaryController",
-    "Method": "Details",
+    "Method": "GetIcdRoots",
     "RelativePath": "api/Dictionary/icd10/root",
     "HttpMethod": "GET",
     "IsController": true,
@@ -176,12 +176,17 @@
   },
   {
     "ContainingType": "scrubsAPI.Controllers.DictionaryController",
-    "Method": "Details",
+    "Method": "GetSpecialities",
     "RelativePath": "api/Dictionary/speciality",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
       {
         "Name": "pageNumber",
         "Type": "System.Int32",

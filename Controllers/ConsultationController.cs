@@ -152,6 +152,7 @@ namespace scrubsAPI
             return Ok();
         }
 
+        [Authorize]
         [ProducesResponseType<InspectionPagedListModel>(200)]
         [HttpGet("")]
         public async Task<IActionResult> GetInspections([FromQuery] List<Guid>? icdRoots = null, bool grouped = false, int page = 1, int size = 5)
@@ -168,7 +169,23 @@ namespace scrubsAPI
 
             if (icdRoots != null)
             {
-                diagnoses = diagnoses.Where(p => icdRoots.Contains(p.icdDiagnosis.id));
+                var icd10s = new List<Icd10>();
+                var icdIds = new List<Guid>();
+                var icd10Roots = _context.Icd10s.Where(i => i.parentId == null).Select(i => i.id).ToList();
+                foreach (var icd in icdRoots)
+                {
+                    if (!icd10Roots.Contains(icd))
+                    {
+                        return BadRequest("Entered icd10 id isn't root element");
+                    }
+                }
+                foreach (var icd in icdRoots)
+                {
+                    await GetIcdsByRoot(icd, icd10s);
+                    icdIds.AddRange(icd10s.Select(i => i.id));
+                    icd10s.Clear();
+                }
+                diagnoses = diagnoses.Where(p => icdIds.Contains(p.icdDiagnosis.id));
             }
 
             var diagnosesList = await diagnoses.ToListAsync();
@@ -236,6 +253,23 @@ namespace scrubsAPI
                 name = diagnosis.icdDiagnosis.name,
                 type = diagnosis.type
             };
+        }
+
+        private async Task GetIcdsByRoot(Guid parentId, List<Icd10> results)
+        {
+
+            var children = await _context.Icd10s
+                .Where(i => i.parentId == parentId)
+                .ToListAsync();
+
+
+            results.AddRange(children);
+
+
+            foreach (var child in children)
+            {
+                await GetIcdsByRoot(child.id, results);
+            }
         }
 
     }

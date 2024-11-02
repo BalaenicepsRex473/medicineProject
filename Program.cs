@@ -57,7 +57,7 @@ builder.Services.AddSwaggerGen(config =>
         Type = SecuritySchemeType.Http,
         Scheme = "bearer",
         BearerFormat = "JWT",
-        Description = "JWT Authorization header using the Bearer scheme."
+        Description = "Please enter token"
     });
     config.OperationFilter<SwaggerAuthorizeFilter>();
 });
