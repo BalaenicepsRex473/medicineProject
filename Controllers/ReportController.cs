@@ -40,11 +40,30 @@ namespace scrubsAPI
             }
 
 
+            var icd10s = new List<Icd10>();
+            var icdIds = new List<Guid>();
+            var icd10Roots = _context.Icd10s.Where(i => i.parentId == null).Select(i => i.id).ToList();
+            foreach (var icd in icdRoots)
+            {
+                if (!icd10Roots.Contains(icd))
+                {
+                    return BadRequest("Entered icd10 id isn't root element");
+                }
+            }
+            foreach (var icd in icdRoots)
+            {
+                await GetIcdsByRoot(icd, icd10s);
+                icdIds.AddRange(icd10s.Select(i => i.id));
+                icd10s.Clear();
+            }
+                
+
+
             var inspections = await _context.Diagnoses
                 .Include(d => d.inspection)
                 .Include(d => d.icdDiagnosis)
                 .Include(d => d.inspection.patient)
-                .Where(d => icdRoots.Contains(d.icdDiagnosis.id) &&
+                .Where(d => icdIds.Contains(d.icdDiagnosis.id) &&
                             d.inspection.date >= start &&
                             d.inspection.date <= end)
                 .ToListAsync();
@@ -82,6 +101,23 @@ namespace scrubsAPI
                 summaryByRoot = summaryByRoot
             };
             return Ok(response);
+        }
+
+        private async Task GetIcdsByRoot(Guid parentId, List<Icd10> results)
+        {
+
+            var children = await _context.Icd10s
+                .Where(i => i.parentId == parentId)
+                .ToListAsync();
+
+
+            results.AddRange(children);
+
+
+            foreach (var child in children)
+            {
+                await GetIcdsByRoot(child.id, results);
+            }
         }
     }
 }
