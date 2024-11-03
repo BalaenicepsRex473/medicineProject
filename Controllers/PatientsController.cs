@@ -264,9 +264,13 @@ namespace scrubsAPI
                 int Mains = 0;
                 await _context.SaveChangesAsync();
                 foreach (var diagnosis in inspectionDTO.diagnoses) {
-                    if (diagnosis.type == DiagnosisType.Main && Mains == 0)
+                    if (Mains <= 1)
                     {
-                        Mains++;
+                        if (diagnosis.type == DiagnosisType.Main)
+                        {
+                            Mains++;
+                        }
+
                         var diagnose = new Diagnosis
                         {
                             id = Guid.NewGuid(),
@@ -282,6 +286,10 @@ namespace scrubsAPI
                     {
                         return BadRequest("There can be only one main diagnosis");
                     }
+                }
+                if (Mains == 0)
+                {
+                    return BadRequest("You haven't entered main diagnosis");
                 }
                 await _context.SaveChangesAsync();
                 var consultations = new List<Consultation>();

@@ -100,7 +100,7 @@ namespace scrubsAPI
 
             if (consultation.speciality != doctor.speciality || consultation.inspection.doctor != doctor)
             {
-                return Forbid("User doesn't have add comment to consultation (unsuitable specialty and not the inspection author)");
+                return Forbid("User doesn't have add comment to consultation (unsuitable specialty or not the inspection author)");
             }
             var comment = new Comment
             {

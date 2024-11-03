@@ -212,9 +212,13 @@ namespace scrubsAPI
             var Mains = 0;
             foreach (var diagnosis in inspectionEdition.diagnoses)
             {
-                if (diagnosis.type == DiagnosisType.Main && Mains == 0)
+                if (Mains <= 1)
                 {
-                    Mains++;
+                    if (diagnosis.type == DiagnosisType.Main)
+                    {
+                        Mains++;
+                    }
+
                     var diagnose = new Diagnosis
                     {
                         id = Guid.NewGuid(),
@@ -225,12 +229,15 @@ namespace scrubsAPI
                         createTime = DateTime.Now
                     };
                     _context.Add(diagnose);
-                    await _context.SaveChangesAsync();
                 }
                 else
                 {
                     return BadRequest("There can be only one main diagnosis");
                 }
+            }
+            if (Mains == 0)
+            {
+                return BadRequest("You haven't entered main diagnosis");
             }
             _context.Update(inspection);
             

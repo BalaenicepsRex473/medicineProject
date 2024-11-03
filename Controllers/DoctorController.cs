@@ -45,10 +45,16 @@ namespace scrubsAPI.Controllers
                 return BadRequest("Password have to had at least 1 number");
             }
 
+            var spec = await _context.Specialities.FirstOrDefaultAsync(d => d.id == doctorDTO.speciality);
+            if (spec == null)
+            {
+                return BadRequest("There are no speciality with such id");
+            }
+
             var doctor = new Doctor { birthday = doctorDTO.birthsday,
                 email = doctorDTO.email,
                 gender = doctorDTO.gender,
-                speciality = await _context.Specialities.FirstOrDefaultAsync(d => d.id == doctorDTO.speciality),
+                speciality = spec,
                 id = new Guid(), name = doctorDTO.name, phone = doctorDTO.phone,
                 createTime = DateTime.Now};
 
