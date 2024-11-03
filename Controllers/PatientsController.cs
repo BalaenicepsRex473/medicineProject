@@ -260,11 +260,12 @@ namespace scrubsAPI
                 {
                     inspection.previousInspection = await _context.Inspections.FirstOrDefaultAsync(m => m.id == inspectionDTO.previousInspectionId);
                 }
-                _context.Add(inspection);
+                
                 int Mains = 0;
                 await _context.SaveChangesAsync();
+                var diagnoses = new List<Diagnosis>(); 
                 foreach (var diagnosis in inspectionDTO.diagnoses) {
-                    if (Mains <= 1)
+                    if (Mains < 1)
                     {
                         if (diagnosis.type == DiagnosisType.Main)
                         {
@@ -280,7 +281,7 @@ namespace scrubsAPI
                             description = diagnosis.description,
                             createTime = DateTime.Now
                         };
-                        _context.Add(diagnose);
+                        diagnoses.Add(diagnose);
                     }
                     else
                     {
@@ -291,7 +292,6 @@ namespace scrubsAPI
                 {
                     return BadRequest("You haven't entered main diagnosis");
                 }
-                await _context.SaveChangesAsync();
                 var consultations = new List<Consultation>();
                 var comments = new List<Comment>();
                 foreach (var consultation in inspectionDTO.consultations)
@@ -313,9 +313,13 @@ namespace scrubsAPI
                         modifiedTime = null,
                         parentComment = null
                     };
-                    _context.Add(comment);
-                    _context.Add(consult);
+                    consultations.Add(consult);
+                    comments.Add(comment);
                 }
+                await _context.AddRangeAsync(consultations);
+                await _context.AddRangeAsync(comments);
+                await _context.AddRangeAsync(diagnoses);
+                _context.Add(inspection);
                 await _context.SaveChangesAsync();
 
 

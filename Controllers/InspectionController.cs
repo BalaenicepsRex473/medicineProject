@@ -56,32 +56,6 @@ namespace scrubsAPI
                 gender = inspec.doctor.gender
 
             };
-            var rootCom = await _context.Comments
-                .Include(i => i.author)
-                .Include(i => i.parentComment)
-                .Include(i => i.author.speciality)
-                .Include(i => i.consultation)
-                .FirstOrDefaultAsync(p => p.consultation.inspection.id == id && p.parentComment == null);
-            var rootComment = new InspectionCommentModel
-            {
-                id = rootCom.id,
-                author = new DoctorModel
-                {
-                    id = rootCom.author.id,
-                    name = rootCom.author.name,
-                    creteTime = rootCom.author.createTime,
-                    birthsday = rootCom.author.birthday,
-                    email = rootCom.author.email,
-                    phone = rootCom.author.phone,
-                    gender = rootCom.author.gender
-
-                },
-                modifyTime = rootCom.modifiedTime,
-                content = rootCom.content,
-                createTime = rootCom.createTime,
-                parentId = null,
-
-            };
             var patient = new PatientModel
             {
                 id = inspec.patient.id,
@@ -126,14 +100,38 @@ namespace scrubsAPI
                         createTime = p.speciality.creationTime,
                         name = p.speciality.name,
                     },
-                    rootComment = rootComment,
+                    rootComment =  _context.Comments
+                        .Include(i => i.author)
+                        .Include(i => i.parentComment)
+                        .Include(i => i.author.speciality)
+                        .Include(i => i.consultation)
+                        .Where(d => d.consultation.id == p.id && d.parentComment == null).Select(p => new InspectionCommentModel
+                        {
+                            id = p.id,
+                            author = new DoctorModel
+                            {
+                                id = p.author.id,
+                                name = p.author.name,
+                                creteTime = p.author.createTime,
+                                birthsday = p.author.birthday,
+                                email = p.author.email,
+                                phone = p.author.phone,
+                                gender = p.author.gender
+
+                            },
+                            modifyTime = p.modifiedTime,
+                            content = p.content,
+                            createTime = p.createTime,
+                            parentId = null,
+
+                        }).FirstOrDefault(g => true),
                     commentNumber = _context.Comments
                     .Include(i => i.author)
                     .Include(i => i.parentComment)
                     .Include(i => i.author.speciality)
                     .Include(i => i.consultation)
                     .Include(i => i.consultation.inspection)
-                    .Where(p => p.consultation.inspection.id == id).Count(),
+                    .Where(k => k.consultation.id == p.id).Count(),
                 }).ToList();
 
             var ins = new InspectionModel
@@ -202,13 +200,8 @@ namespace scrubsAPI
                .Where(p => p.inspection.id == inspection.id)
                .ToListAsync();
 
-            foreach (var diagnosis in diagnoses) 
-            {
-                _context.Diagnoses.Remove(diagnosis);
-                await _context.SaveChangesAsync();
 
-            }
-
+            var diagnoses2 = new List<Diagnosis>();
             var Mains = 0;
             foreach (var diagnosis in inspectionEdition.diagnoses)
             {
@@ -217,6 +210,10 @@ namespace scrubsAPI
                     if (diagnosis.type == DiagnosisType.Main)
                     {
                         Mains++;
+                        if (Mains == 2)
+                        {
+                            return BadRequest("There can be only one main diagnosis");
+                        }
                     }
 
                     var diagnose = new Diagnosis
@@ -228,7 +225,7 @@ namespace scrubsAPI
                         description = diagnosis.description,
                         createTime = DateTime.Now
                     };
-                    _context.Add(diagnose);
+                    diagnoses2.Add(diagnose);
                 }
                 else
                 {
@@ -239,6 +236,15 @@ namespace scrubsAPI
             {
                 return BadRequest("You haven't entered main diagnosis");
             }
+
+            foreach (var diagnosis in diagnoses)
+            {
+                _context.Diagnoses.Remove(diagnosis);
+                await _context.SaveChangesAsync();
+
+            }
+            await _context.AddRangeAsync(diagnoses2);
+            await _context.SaveChangesAsync();
             _context.Update(inspection);
             
             return Ok(); 
