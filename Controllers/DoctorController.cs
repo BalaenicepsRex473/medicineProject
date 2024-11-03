@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using scrubsAPI.Schemas;
 using NuGet.Protocol;
-using scrubsAPI.Authorization;
+using scrubsAPI;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
@@ -22,9 +22,11 @@ namespace scrubsAPI.Controllers
     public class DoctorController : ControllerBase
     {
         private readonly ScrubsDbContext _context;
-        public DoctorController(ScrubsDbContext context)
+        private readonly TokenStorage _tokenStorage;
+        public DoctorController(ScrubsDbContext context, TokenStorage tokenStorage)
         {
             _context = context;
+            _tokenStorage = tokenStorage;
 
         }
 
@@ -79,6 +81,7 @@ namespace scrubsAPI.Controllers
                 token = new JwtSecurityTokenHandler().WriteToken(jwt),
             };
 
+            _tokenStorage.AddToken(token.token, doctor.id.ToString());
             return Ok(token);
         }
 
@@ -113,6 +116,7 @@ namespace scrubsAPI.Controllers
             {
                 token = new JwtSecurityTokenHandler().WriteToken(jwt),
             };
+            _tokenStorage.AddToken(user.id.ToString(), token.token);
             return Ok(token);
         }
 
@@ -120,18 +124,15 @@ namespace scrubsAPI.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Logout()
         {
+            var user = Guid.Parse(HttpContext.User.Identity.Name);
 
-            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-
-            var bannedToken = new BannedToken
+            bool removed = _tokenStorage.RemoveToken(HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", ""));
+            if (!removed)
             {
-                id = Guid.NewGuid(),
-                token = token,
-            };
-            _context.Add(bannedToken);
-            await _context.SaveChangesAsync();
+                return BadRequest("User already logged out.");
+            }
 
-            return Ok("You're logged off");
+            return Ok("You're logged out.");
         }
 
 

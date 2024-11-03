@@ -12,7 +12,6 @@ public class ScrubsDbContext : DbContext
     public DbSet <Consultation> Consultations { get; set; }
     public DbSet <Comment> Comments { get; set; }
     public DbSet <Diagnosis> Diagnoses { get; set; }
-    public DbSet<BannedToken> BannedTokens { get; set; }
     public DbSet <Icd10> Icd10s { get; set; }
     public ScrubsDbContext(DbContextOptions<ScrubsDbContext> options)
         : base(options)

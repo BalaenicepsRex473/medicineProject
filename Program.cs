@@ -9,7 +9,6 @@ using System.Text;
 using System;
 using Microsoft.OpenApi.Models;
 using scrubsAPI.Schemas;
-using scrubsAPI.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +31,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
         };
     });
+builder.Services.AddSingleton<TokenStorage>();
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -71,7 +71,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<CheckingForBannedToken>();
+app.UseMiddleware<AuthCheck>();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

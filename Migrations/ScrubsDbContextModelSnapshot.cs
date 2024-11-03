@@ -17,21 +17,6 @@ namespace scrubsAPI.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
 
-            modelBuilder.Entity("scrubsAPI.BannedToken", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("token")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("id");
-
-                    b.ToTable("BannedTokens");
-                });
-
             modelBuilder.Entity("scrubsAPI.Consultation", b =>
                 {
                     b.Property<Guid>("id")
