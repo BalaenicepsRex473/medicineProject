@@ -6,7 +6,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using System.Text;
-
 using System;
 using Microsoft.OpenApi.Models;
 using scrubsAPI.Schemas;
@@ -26,7 +25,7 @@ builder.Services.AddQuartz(q =>
     q.AddTrigger(opts => opts
         .ForJob(jobKey)
         .WithIdentity("MissedInspectionNotificationTrigger")
-        .WithCronSchedule("0 33 7 * * ?"));
+        .WithSimpleSchedule(x => x.WithIntervalInHours(1).RepeatForever()));
 });
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 

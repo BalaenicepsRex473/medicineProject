@@ -195,6 +195,7 @@ namespace scrubsAPI
             }
             inspection.complaints = inspectionEdition.complaints;
             inspection.conclusion = inspectionEdition.conclusion;
+            inspection.treatment = inspectionEdition.treatment;
 
             var diagnoses = await _context.Diagnoses
                .Where(p => p.inspection.id == inspection.id)

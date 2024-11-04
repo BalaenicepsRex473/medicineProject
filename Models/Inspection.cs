@@ -14,5 +14,6 @@
         public DateTime? deathTime { get; set;}
         public virtual Inspection? previousInspection { get; set; }
         public virtual Doctor doctor { get; set; }
+        public bool notified { get; set; } = false;
     }
 }

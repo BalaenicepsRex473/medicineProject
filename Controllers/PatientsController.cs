@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using scrubsAPI;
 using scrubsAPI.Models;
@@ -235,7 +236,7 @@ namespace scrubsAPI
                 {
                     if (inspection.nextVisitDate.HasValue || inspection.deathTime.HasValue)
                     {
-                        return BadRequest("Patient has recoveried, he has no death time or next visit");
+                        return BadRequest("Patient has recoveried, he is not dead");
                     }
                     inspection.nextVisitDate = null;
                     inspection.deathTime = null;
@@ -294,14 +295,21 @@ namespace scrubsAPI
                 }
                 var consultations = new List<Consultation>();
                 var comments = new List<Comment>();
+                var spec = new List<Speciality>();
                 foreach (var consultation in inspectionDTO.consultations)
                 {
+                    var speciality = await _context.Specialities.FirstOrDefaultAsync(m => m.id == consultation.specialityId);
+                    if (spec.Contains(speciality))
+                    {
+                        return BadRequest("Patient must have only 1 consultation per speciality");
+                    }
+                    spec.Add(speciality);
                     var consult = new Consultation
                     {
                         id = Guid.NewGuid(),
                         createTime = DateTime.Now,
                         inspection = inspection,
-                        speciality = await _context.Specialities.FirstOrDefaultAsync(m => m.id == consultation.specialityId),
+                        speciality = speciality,
                     };
                     var comment = new Comment
                     {
@@ -375,7 +383,7 @@ namespace scrubsAPI
             var inspectionsQuery = _context.Inspections
                 .Include(d => d.patient)
                 .Include(d => d.doctor)
-                .Include(d => d.previousInspection) 
+                .Include(d => d.previousInspection)
                 .Where(d => d.patient.id == id).ToList();
 
 
@@ -399,17 +407,24 @@ namespace scrubsAPI
                     patient = d.patient.name,
                     hasChain = d.nextVisitDate != null,
                     hasNested = d.previousInspection != null,
-                    diagnosis = diagnosesList.Where(p => p.inspection.id == d.id).Select(p => toDiagnosisModel(p)).FirstOrDefault(), 
+                    diagnosis = diagnosesList.Where(p => p.inspection.id == d.id && p.type == DiagnosisType.Main).Select(p => new DiagnosisModel
+                    {
+                        id = p.id,
+                        createTime = p.createTime,
+                        description = p.description,
+                        code = p.icdDiagnosis.code,
+                        name = p.icdDiagnosis.name,
+                        type = p.type
+                    }).FirstOrDefault(p => p == p),
                 });
 
   
-            var filteredInspections = inspectionsWithDiagnosis.Where(p => p.diagnosis != null);
 
-            float totalInspections = filteredInspections.Count();
+            float totalInspections = inspectionsWithDiagnosis.Count();
             float pageSize = size;
             var response = new InspectionPagedListModel
             {
-                inspections = filteredInspections
+                inspections = inspectionsWithDiagnosis
                     .Skip((page - 1) * size)
                     .Take(size).ToList(),
                 pagination = new PageInfoModel
@@ -454,18 +469,7 @@ namespace scrubsAPI
             return Ok(response);
         }
 
-        private DiagnosisModel toDiagnosisModel(Diagnosis? diagnosis)
-        {
-            return new DiagnosisModel
-            {
-                id = diagnosis.id,
-                createTime = diagnosis.createTime,
-                description = diagnosis.description,
-                code = diagnosis.icdDiagnosis.code,
-                name= diagnosis.icdDiagnosis.name,
-                type = diagnosis.type
-            };
-        }
+
         private async Task GetIcdsByRoot(Guid parentId, List<Icd10> results)
         {
 

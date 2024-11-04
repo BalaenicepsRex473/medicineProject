@@ -114,6 +114,9 @@ namespace scrubsAPI.Migrations
                     b.Property<DateTime?>("nextVisitDate")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("notified")
+                        .HasColumnType("INTEGER");
+
                     b.Property<Guid>("patientid")
                         .HasColumnType("TEXT");
 
