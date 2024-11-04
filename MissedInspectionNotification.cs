@@ -32,7 +32,7 @@ namespace scrubsAPI
             foreach (var inspection in missedInspections)
             {
                 var subject = $"Пропущенный визит пациента {inspection.patient.name}";
-                var body = $"Пациент {inspection.patient.name} не явился на запланированный визит на {inspection.nextVisitDate?.ToString("yyyy-MM-dd")}.";
+                var body = $"Пациент {inspection.patient.name} пропустил визит назначенный на {inspection.nextVisitDate?.ToString("yyyy-MM-dd")}.";
 
                 try
                 {

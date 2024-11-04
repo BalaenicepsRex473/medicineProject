@@ -223,6 +223,10 @@ namespace scrubsAPI
             var inspection = new Inspection();
             if (ModelState.IsValid)
             {
+                if (_context.Inspections.Any(p => p.patient.id == id && p.conclusion == Conclusion.Death))
+                {
+                    return BadRequest("Patient is already dead.");
+                }
                 inspection.doctor = doctor;
                 inspection.patient = _context.Patients.FirstOrDefault(d => d.id == id);
                 inspection.id = Guid.NewGuid();
