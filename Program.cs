@@ -6,15 +6,29 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using System.Text;
+
 using System;
 using Microsoft.OpenApi.Models;
 using scrubsAPI.Schemas;
+using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<ScrubsDbContext>(
                options => options.UseSqlite("Data Source=Application.db;Cache=Shared"));
+
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionJobFactory();
+    var jobKey = new JobKey("MissedInspectionNotification");
+    q.AddJob<MissedInspectionNotification>(opts => opts.WithIdentity(jobKey));
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey)
+        .WithIdentity("MissedInspectionNotificationTrigger")
+        .WithCronSchedule("0 33 7 * * ?"));
+});
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -62,6 +76,7 @@ builder.Services.AddSwaggerGen(config =>
     config.OperationFilter<SwaggerAuthorizeFilter>();
 });
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
