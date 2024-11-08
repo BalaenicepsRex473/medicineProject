@@ -19,7 +19,6 @@ builder.Services.AddDbContext<ScrubsDbContext>(
 
 builder.Services.AddQuartz(q =>
 {
-    q.UseMicrosoftDependencyInjectionJobFactory();
     var jobKey = new JobKey("MissedInspectionNotification");
     q.AddJob<MissedInspectionNotification>(opts => opts.WithIdentity(jobKey));
     q.AddTrigger(opts => opts
