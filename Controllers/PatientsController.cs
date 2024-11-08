@@ -240,7 +240,7 @@ namespace scrubsAPI
                 {
                     if (inspectionDTO.nextVisitDate.HasValue || inspectionDTO.deathTime.HasValue)
                     {
-                        return BadRequest("Patient has recoveried, he is not dead");
+                        return BadRequest("Patient has recoveried, he is not dead or cant have next visit");
                     }
                     inspection.nextVisitDate = null;
                     inspection.deathTime = null;

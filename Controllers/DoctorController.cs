@@ -34,55 +34,68 @@ namespace scrubsAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] DoctorRegisterModel doctorDTO)
         {
-            var existingEmail = await _context.Doctors.FirstOrDefaultAsync(d => d.email == doctorDTO.email);
-            if (existingEmail != null)
+            if (ModelState.IsValid)
             {
-                return BadRequest("This email has already used");
+
+                var existingEmail = await _context.Doctors.FirstOrDefaultAsync(d => d.email == doctorDTO.email);
+                if (existingEmail != null)
+                {
+                    return BadRequest("This email has already used");
+                }
+                var hasNumber = new Regex(@"\d");
+
+
+                if (!hasNumber.IsMatch(doctorDTO.password))
+                {
+                    return BadRequest("Password have to had at least 1 number");
+                }
+
+                var spec = await _context.Specialities.FirstOrDefaultAsync(d => d.id == doctorDTO.speciality);
+                if (spec == null)
+                {
+                    return BadRequest("There are no speciality with such id");
+                }
+
+                var doctor = new Doctor
+                {
+                    birthday = doctorDTO.birthsday,
+                    email = doctorDTO.email,
+                    gender = doctorDTO.gender,
+                    speciality = spec,
+                    id = new Guid(),
+                    name = doctorDTO.name,
+                    phone = doctorDTO.phone,
+                    createTime = DateTime.Now
+                };
+
+                var passwordHash = HashPassword(doctorDTO.password);
+                doctor.password = passwordHash;
+
+
+                _context.Doctors.Add(doctor);
+                await _context.SaveChangesAsync();
+
+                var claims = new List<Claim> { new Claim(ClaimTypes.Name, doctor.id.ToString()) };
+
+                var jwt = new JwtSecurityToken(
+                issuer: AuthOptions.ISSUER,
+                audience: AuthOptions.AUDIENCE,
+                claims: claims,
+                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(15)),
+                signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+
+                var token = new TokenResponceModel
+                {
+                    token = new JwtSecurityTokenHandler().WriteToken(jwt),
+                };
+
+                _tokenStorage.AddToken(doctor.id.ToString(), token.token);
+                return Ok(token);
             }
-            var hasNumber = new Regex(@"\d");
-
-
-            if (!hasNumber.IsMatch(doctorDTO.password))
+            else
             {
-                return BadRequest("Password have to had at least 1 number");
+                return BadRequest();
             }
-
-            var spec = await _context.Specialities.FirstOrDefaultAsync(d => d.id == doctorDTO.speciality);
-            if (spec == null)
-            {
-                return BadRequest("There are no speciality with such id");
-            }
-
-            var doctor = new Doctor { birthday = doctorDTO.birthsday,
-                email = doctorDTO.email,
-                gender = doctorDTO.gender,
-                speciality = spec,
-                id = new Guid(), name = doctorDTO.name, phone = doctorDTO.phone,
-                createTime = DateTime.Now};
-
-            var passwordHash = HashPassword(doctorDTO.password);
-            doctor.password = passwordHash;
-
-
-            _context.Doctors.Add(doctor);
-            await _context.SaveChangesAsync();
-
-            var claims = new List<Claim> { new Claim(ClaimTypes.Name, doctor.id.ToString()) };
-
-            var jwt = new JwtSecurityToken(
-            issuer: AuthOptions.ISSUER,
-            audience: AuthOptions.AUDIENCE,
-            claims: claims,
-            expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(15)),
-            signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
-
-            var token = new TokenResponceModel
-            {
-                token = new JwtSecurityTokenHandler().WriteToken(jwt),
-            };
-
-            _tokenStorage.AddToken(doctor.id.ToString(), token.token);
-            return Ok(token);
         }
 
 

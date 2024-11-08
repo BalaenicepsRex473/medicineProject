@@ -86,46 +86,53 @@ namespace scrubsAPI
         [HttpPost("{id}/comment")]
         public async Task<IActionResult> AddComment(Guid id, [FromBody] CommentCreateModel commentCreation)
         {
-            var user = Guid.Parse(HttpContext.User.Identity.Name);
-            var doctor = _context.Doctors
-                .Include(p => p.speciality)
-                .FirstOrDefault(d => d.id == user);
+            if (ModelState.IsValid)
+            {
+                var user = Guid.Parse(HttpContext.User.Identity.Name);
+                var doctor = _context.Doctors
+                    .Include(p => p.speciality)
+                    .FirstOrDefault(d => d.id == user);
 
-            var consultation = await _context.Consultations
-                .Include(p => p.inspection)
-                .Include(p => p.speciality)
-                .Include(p => p.inspection.doctor)
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (consultation == null)
-            {
-                return NotFound();
-            }
+                var consultation = await _context.Consultations
+                    .Include(p => p.inspection)
+                    .Include(p => p.speciality)
+                    .Include(p => p.inspection.doctor)
+                    .FirstOrDefaultAsync(m => m.id == id);
+                if (consultation == null)
+                {
+                    return NotFound();
+                }
 
-            if (consultation.speciality != doctor.speciality && consultation.inspection.doctor != doctor)
-            {
-                return BadRequest("User doesn't have add comment to consultation (unsuitable specialty or not the inspection author)");
+                if (consultation.speciality != doctor.speciality && consultation.inspection.doctor != doctor)
+                {
+                    return BadRequest("User doesn't have add comment to consultation (unsuitable specialty or not the inspection author)");
+                }
+                var comment = new Comment
+                {
+                    id = Guid.NewGuid(),
+                    consultation = consultation,
+                    author = doctor,
+                    content = commentCreation.content,
+                    createTime = DateTime.Now,
+                    modifiedTime = null,
+                    parentComment = null,
+                };
+                if (commentCreation.parentId != null)
+                {
+                    comment.parentComment = await _context.Comments
+                        .Include(i => i.author)
+                        .Include(i => i.parentComment)
+                        .Include(i => i.consultation)
+                        .FirstOrDefaultAsync(m => m.id == commentCreation.parentId);
+                }
+                _context.Comments.Add(comment);
+                await _context.SaveChangesAsync();
+                return Ok(comment.id);
             }
-            var comment = new Comment
+            else 
             {
-                id = Guid.NewGuid(),
-                consultation = consultation,
-                author = doctor, 
-                content = commentCreation.content,
-                createTime = DateTime.Now,
-                modifiedTime = null,
-                parentComment = null,
-            };
-            if (commentCreation.parentId != null) 
-            {
-                comment.parentComment = await _context.Comments
-                    .Include(i => i.author)
-                    .Include(i => i.parentComment)
-                    .Include(i => i.consultation)
-                    .FirstOrDefaultAsync(m => m.id == commentCreation.parentId);
+                return BadRequest();
             }
-            _context.Comments.Add(comment);
-            await _context.SaveChangesAsync();
-            return Ok(comment.id);
         }
 
 
@@ -134,26 +141,32 @@ namespace scrubsAPI
         public async Task<IActionResult> EditComment(Guid id, [FromBody] CommentEditModel commentEditing)
         {
 
-
-            var comment = await _context.Comments
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (comment == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                var comment = await _context.Comments
+                    .FirstOrDefaultAsync(m => m.id == id);
+                if (comment == null)
+                {
+                    return NotFound();
+                }
+
+                var user = Guid.Parse(HttpContext.User.Identity.Name);
+                var doctor = _context.Doctors.FirstOrDefault(d => d.id == user);
+
+                if (doctor != comment.author)
+                {
+                    return Forbid("User is not the author of the comment");
+                }
+
+                comment.content = commentEditing.content;
+                _context.Update(comment);
+                await _context.SaveChangesAsync();
+                return Ok();
             }
-
-            var user = Guid.Parse(HttpContext.User.Identity.Name);
-            var doctor = _context.Doctors.FirstOrDefault(d => d.id == user);
-
-            if (doctor != comment.author)
+            else 
             {
-                return Forbid("User is not the author of the comment");
+                return BadRequest();
             }
-
-            comment.content = commentEditing.content;
-            _context.Update(comment);
-            await _context.SaveChangesAsync();
-            return Ok();
         }
 
         [Authorize]

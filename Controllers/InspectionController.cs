@@ -161,94 +161,106 @@ namespace scrubsAPI
         [HttpPut("{id}")]
         public async Task<IActionResult> EditInspection(Guid id, [FromBody] InspectionEditModel inspectionEdition)
         {
-            var inspection = await _context.Inspections
-                .FirstOrDefaultAsync(i => i.id == id);
-
-            if (inspectionEdition.conclusion.ToString() == "Recovery")
+            if (ModelState.IsValid)
             {
-                if (inspectionEdition.nextVisitDate.HasValue || inspectionEdition.deathTime.HasValue)
+                var inspection = await _context.Inspections
+                    .FirstOrDefaultAsync(i => i.id == id);
+
+                if (inspection == null)
                 {
-                    return BadRequest("Patient has recoveried, he has no death time or next visit");
+                    return BadRequest("there are no such inpection");
                 }
-                inspection.nextVisitDate = null;
-                inspection.deathTime = null;
-            }
-            else if (inspectionEdition.conclusion.ToString() == "Death")
-            {
-                if (inspectionEdition.nextVisitDate.HasValue || !inspectionEdition.deathTime.HasValue)
-                {
-                    return BadRequest("Patient has dead, cant have next visit");
-                }
-                inspection.deathTime = inspectionEdition.deathTime;
-            }
-            else
-            {
-                if (!inspectionEdition.nextVisitDate.HasValue || inspectionEdition.deathTime.HasValue)
-                {
-                    return BadRequest("Patient is ill, he cant be dead");
-                }
-                inspection.nextVisitDate = inspectionEdition.nextVisitDate;
-            }
-            if (inspectionEdition.anamesis != null)
-            {
-                inspection.anamesis = inspectionEdition.anamesis;
-            }
-            inspection.complaints = inspectionEdition.complaints;
-            inspection.conclusion = inspectionEdition.conclusion;
-            inspection.treatment = inspectionEdition.treatment;
 
-            var diagnoses = await _context.Diagnoses
-               .Where(p => p.inspection.id == inspection.id)
-               .ToListAsync();
-
-
-            var diagnoses2 = new List<Diagnosis>();
-            var Mains = 0;
-            foreach (var diagnosis in inspectionEdition.diagnoses)
-            {
-                if (Mains <= 1)
+                if (inspectionEdition.conclusion.ToString() == "Recovery")
                 {
-                    if (diagnosis.type == DiagnosisType.Main)
+                    if (inspectionEdition.nextVisitDate.HasValue || inspectionEdition.deathTime.HasValue)
                     {
-                        Mains++;
-                        if (Mains == 2)
-                        {
-                            return BadRequest("There can be only one main diagnosis");
-                        }
+                        return BadRequest("Patient has recoveried, he is not dead or cant have next visit");
                     }
-
-                    var diagnose = new Diagnosis
+                    inspection.nextVisitDate = null;
+                    inspection.deathTime = null;
+                }
+                else if (inspectionEdition.conclusion.ToString() == "Death")
+                {
+                    if (inspectionEdition.nextVisitDate.HasValue || !inspectionEdition.deathTime.HasValue)
                     {
-                        id = Guid.NewGuid(),
-                        icdDiagnosis = await _context.Icd10s.FirstOrDefaultAsync(m => m.id == diagnosis.icdDiagnosisId),
-                        inspection = inspection,
-                        type = diagnosis.type,
-                        description = diagnosis.description,
-                        createTime = DateTime.Now
-                    };
-                    diagnoses2.Add(diagnose);
+                        return BadRequest("Patient is dead, he cant have next visit or dont have death time");
+                    }
+                    inspection.deathTime = inspectionEdition.deathTime;
                 }
                 else
                 {
-                    return BadRequest("There can be only one main diagnosis");
+                    if (!inspectionEdition.nextVisitDate.HasValue || inspectionEdition.deathTime.HasValue)
+                    {
+                        return BadRequest("Patient is ill, he cant be dead or dont have next visit date");
+                    }
+                    inspection.nextVisitDate = inspectionEdition.nextVisitDate;
                 }
-            }
-            if (Mains == 0)
-            {
-                return BadRequest("You haven't entered main diagnosis");
-            }
+                if (inspectionEdition.anamesis != null)
+                {
+                    inspection.anamesis = inspectionEdition.anamesis;
+                }
+                inspection.complaints = inspectionEdition.complaints;
+                inspection.conclusion = inspectionEdition.conclusion;
+                inspection.treatment = inspectionEdition.treatment;
 
-            foreach (var diagnosis in diagnoses)
-            {
-                _context.Diagnoses.Remove(diagnosis);
+                var diagnoses = await _context.Diagnoses
+                   .Where(p => p.inspection.id == inspection.id)
+                   .ToListAsync();
+
+
+                var diagnoses2 = new List<Diagnosis>();
+                var Mains = 0;
+                foreach (var diagnosis in inspectionEdition.diagnoses)
+                {
+                    if (Mains <= 1)
+                    {
+                        if (diagnosis.type == DiagnosisType.Main)
+                        {
+                            Mains++;
+                            if (Mains == 2)
+                            {
+                                return BadRequest("There can be only one main diagnosis");
+                            }
+                        }
+
+                        var diagnose = new Diagnosis
+                        {
+                            id = Guid.NewGuid(),
+                            icdDiagnosis = await _context.Icd10s.FirstOrDefaultAsync(m => m.id == diagnosis.icdDiagnosisId),
+                            inspection = inspection,
+                            type = diagnosis.type,
+                            description = diagnosis.description,
+                            createTime = DateTime.Now
+                        };
+                        diagnoses2.Add(diagnose);
+                    }
+                    else
+                    {
+                        return BadRequest("There can be only one main diagnosis");
+                    }
+                }
+                if (Mains == 0)
+                {
+                    return BadRequest("You haven't entered main diagnosis");
+                }
+
+                foreach (var diagnosis in diagnoses)
+                {
+                    _context.Diagnoses.Remove(diagnosis);
+                    await _context.SaveChangesAsync();
+
+                }
+                await _context.AddRangeAsync(diagnoses2);
                 await _context.SaveChangesAsync();
+                _context.Update(inspection);
 
+                return Ok();
             }
-            await _context.AddRangeAsync(diagnoses2);
-            await _context.SaveChangesAsync();
-            _context.Update(inspection);
-            
-            return Ok(); 
+            else 
+            {
+                return BadRequest();
+            }
         }
 
         [ProducesResponseType<List<InspectionPreviewModel>>(200)]
