@@ -6,6 +6,6 @@ namespace scrubsAPI
     {
         [Required] public Guid id { get; set; }
         [Required] public DateTime createTime { get; set; }
-        [Required] public string name { get; set; }
+        [Required][MinLength(1)] public string name { get; set; }
     }
 }

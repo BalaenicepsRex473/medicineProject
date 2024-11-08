@@ -1,7 +1,9 @@
-﻿namespace scrubsAPI
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace scrubsAPI
 {
     public class InspectionCommentCreateModel
     {
-        public string content { get; set; }
+        [Required][MinLength(1), MaxLength(1000)]public string content { get; set; }
     }
 }

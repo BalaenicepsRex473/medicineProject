@@ -1,9 +1,11 @@
-﻿namespace scrubsAPI.Schemas
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace scrubsAPI.Schemas
 {
     public class InspectionConsultationModel
     {
-        public Guid id { get; set; }
-        public DateTime createTime { get; set; }
+        [Required]public Guid id { get; set; }
+        [Required]public DateTime createTime { get; set; }
         public Guid? inspectionId { get; set; }
         public SpecialityModel? speciality { get; set; }
         public InspectionCommentModel? rootComment { get; set; }

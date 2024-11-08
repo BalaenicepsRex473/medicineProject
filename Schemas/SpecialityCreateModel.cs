@@ -4,6 +4,6 @@ namespace scrubsAPI
 {
     public class SpecialityCreateModel
     {
-        [Required] public string name { get; set; }
+        [Required][MinLength(1)] public string name { get; set; }
     }
 }
