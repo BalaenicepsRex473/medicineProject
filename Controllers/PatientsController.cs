@@ -270,13 +270,17 @@ namespace scrubsAPI
                 await _context.SaveChangesAsync();
                 var diagnoses = new List<Diagnosis>(); 
                 foreach (var diagnosis in inspectionDTO.diagnoses) {
-                    if (Mains < 1)
+                    if (Mains <= 1)
                     {
                         if (diagnosis.type == DiagnosisType.Main)
                         {
                             Mains++;
                         }
-
+                        if (Mains > 1)
+                        {
+                            return BadRequest("There can be only one main diagnosis");
+                        }
+                        
                         var diagnose = new Diagnosis
                         {
                             id = Guid.NewGuid(),
@@ -447,7 +451,15 @@ namespace scrubsAPI
         [HttpGet("{id}/inspections/search")]
         public async Task<IActionResult> SearchInspection(Guid id, string request = "")
         {
-            var diagnoses = _context.Diagnoses.Where(p => p.inspection.patient.id == id && (p.icdDiagnosis.code == request | p.icdDiagnosis.name.ToLower().Contains(request.ToLower())))
+
+            var response = _context.Inspections
+                .Where(d => d.patient.id == id)
+                .Select(d => new InspectionShortModel
+                {
+                    id = d.id,
+                    createTime = d.createTime,
+                    date = d.date,
+                    diagnoses = _context.Diagnoses.Where(p => p.inspection.patient.id == id && p.inspection.id == d.id &&  (p.icdDiagnosis.code == request | p.icdDiagnosis.name.ToLower().Contains(request.ToLower())))
                     .Select(p => new DiagnosisModel
                     {
                         id = p.id,
@@ -457,17 +469,8 @@ namespace scrubsAPI
                         description = p.description,
                         type = p.type
 
-                    }).ToList();
-
-            var response = _context.Inspections
-                .Where(d => d.patient.id == id)
-                .Select(d => new InspectionShortModel
-                {
-                    id = d.id,
-                    createTime = d.createTime,
-                    date = d.date,
-                    diagnoses = diagnoses
-                }).ToList();
+                    }).ToList()
+        }).ToList();
 
 
             return Ok(response);

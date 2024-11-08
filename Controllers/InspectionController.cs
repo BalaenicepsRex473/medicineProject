@@ -68,7 +68,7 @@ namespace scrubsAPI
             var diagnoses = _context.Diagnoses
                 .Include(i => i.icdDiagnosis)
                 .Include(i => i.inspection)
-                .Where(p => p.inspection.patient.id == inspec.patient.id)
+                .Where(p => p.inspection.id == inspec.id)
                     .Select(p => new DiagnosisModel
                     {
                         id = p.id,
@@ -302,7 +302,7 @@ namespace scrubsAPI
                 hasNested = ins.previousInspection != null,
                 diagnosis = toDiagnosisModel(_context.Diagnoses
                 .Include(p => p.icdDiagnosis)
-                .FirstOrDefault(p => p.inspection.patient.id == ins.patient.id && p.type == DiagnosisType.Main)),
+                .FirstOrDefault(p => p.inspection.id == ins.id && p.type == DiagnosisType.Main)),
             };
 
 

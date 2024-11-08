@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -121,6 +122,7 @@ namespace scrubsAPI.Controllers
             return Ok(response);
         }
 
+  
         [ProducesResponseType<SpecialitiesPagedListModel>(200)]
         [HttpGet("speciality")]
         public async Task<IActionResult> GetSpecialities(string name = "", int pageNumber = 1, int pageSize = 5)
@@ -149,6 +151,7 @@ namespace scrubsAPI.Controllers
             return Ok(response);
         }
 
+        [Authorize]
         [ProducesResponseType<Guid>(200)]
         [HttpPost("speciality")]
         public async Task<IActionResult> Create([FromBody] SpecialityCreateModel specialityDTO)

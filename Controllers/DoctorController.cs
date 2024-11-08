@@ -81,7 +81,7 @@ namespace scrubsAPI.Controllers
                 token = new JwtSecurityTokenHandler().WriteToken(jwt),
             };
 
-            _tokenStorage.AddToken(token.token, doctor.id.ToString());
+            _tokenStorage.AddToken(doctor.id.ToString(), token.token);
             return Ok(token);
         }
 
@@ -176,7 +176,7 @@ namespace scrubsAPI.Controllers
 
                 doc.email = doctor.email;
                 doc.gender = doctor.gender;
-                doc.email = doctor.name;
+                doc.name = doctor.name;
 
                 _context.Update(doc);
                 await _context.SaveChangesAsync();

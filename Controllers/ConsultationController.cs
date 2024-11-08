@@ -87,20 +87,23 @@ namespace scrubsAPI
         public async Task<IActionResult> AddComment(Guid id, [FromBody] CommentCreateModel commentCreation)
         {
             var user = Guid.Parse(HttpContext.User.Identity.Name);
-            var doctor = _context.Doctors.FirstOrDefault(d => d.id == user);
+            var doctor = _context.Doctors
+                .Include(p => p.speciality)
+                .FirstOrDefault(d => d.id == user);
 
             var consultation = await _context.Consultations
                 .Include(p => p.inspection)
                 .Include(p => p.speciality)
+                .Include(p => p.inspection.doctor)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (consultation == null)
             {
                 return NotFound();
             }
 
-            if (consultation.speciality != doctor.speciality || consultation.inspection.doctor != doctor)
+            if (consultation.speciality != doctor.speciality && consultation.inspection.doctor != doctor)
             {
-                return Forbid("User doesn't have add comment to consultation (unsuitable specialty or not the inspection author)");
+                return BadRequest("User doesn't have add comment to consultation (unsuitable specialty or not the inspection author)");
             }
             var comment = new Comment
             {
@@ -147,6 +150,7 @@ namespace scrubsAPI
                 return Forbid("User is not the author of the comment");
             }
 
+            comment.content = commentEditing.content;
             _context.Update(comment);
             await _context.SaveChangesAsync();
             return Ok();
@@ -158,6 +162,10 @@ namespace scrubsAPI
         public async Task<IActionResult> GetInspections([FromQuery] List<Guid>? icdRoots = null, bool grouped = false, int page = 1, int size = 5)
         {
 
+            var user = Guid.Parse(HttpContext.User.Identity.Name);
+            var doctor = _context.Doctors
+                .Include(p => p.speciality)
+                .FirstOrDefault(d => d.id == user);
 
             var diagnoses = _context.Diagnoses
                 .Include(p => p.icdDiagnosis)
@@ -194,7 +202,9 @@ namespace scrubsAPI
             var inspectionsQuery = _context.Inspections
                 .Include(d => d.patient)
                 .Include(d => d.doctor)
+                .Include(d => d.doctor.speciality)
                 .Include(d => d.previousInspection)
+                .Where(i => i.doctor.speciality == doctor.speciality)
                 .ToList();
 
 
