@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("scrubsAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77fdfc4ba446bbd503de5a0c390d20287dc333f7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6e4267c6feb0a4d66ab123f2a9e9e76b822c09e")]
 [assembly: System.Reflection.AssemblyProductAttribute("scrubsAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("scrubsAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

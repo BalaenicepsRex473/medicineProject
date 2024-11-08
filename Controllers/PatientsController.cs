@@ -238,7 +238,7 @@ namespace scrubsAPI
                 inspection.conclusion = inspectionDTO.conclusion;
                 if (inspection.conclusion.ToString() == "Recovery")
                 {
-                    if (inspection.nextVisitDate.HasValue || inspection.deathTime.HasValue)
+                    if (inspectionDTO.nextVisitDate.HasValue || inspectionDTO.deathTime.HasValue)
                     {
                         return BadRequest("Patient has recoveried, he is not dead");
                     }
@@ -249,7 +249,7 @@ namespace scrubsAPI
                 {
                     if (inspectionDTO.nextVisitDate.HasValue || !inspectionDTO.deathTime.HasValue)
                     {
-                        return BadRequest("Patient has dead, cant have next visit");
+                        return BadRequest("Patient is dead, he cant have next visit or dont have death time");
                     }
                     inspection.deathTime = inspectionDTO.deathTime;
                 }
@@ -257,13 +257,21 @@ namespace scrubsAPI
                 {
                     if (!inspectionDTO.nextVisitDate.HasValue || inspectionDTO.deathTime.HasValue)
                     {
-                        return BadRequest("Patient is ill, he cant be dead");
+                        return BadRequest("Patient is ill, he cant be dead or dont have next visit date");
                     }
                     inspection.nextVisitDate = inspectionDTO.nextVisitDate;
                 }
+
+
+
                 if (inspectionDTO.previousInspectionId != null)
                 {
-                    inspection.previousInspection = await _context.Inspections.FirstOrDefaultAsync(m => m.id == inspectionDTO.previousInspectionId);
+                    var prevIns = await _context.Inspections.FirstOrDefaultAsync(m => m.id == inspectionDTO.previousInspectionId);
+                    if (prevIns == null)
+                    {
+                        return BadRequest("Thre are no such inspection");
+                    }
+                    inspection.previousInspection = prevIns;
                 }
                 
                 int Mains = 0;
