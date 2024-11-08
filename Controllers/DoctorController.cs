@@ -142,7 +142,9 @@ namespace scrubsAPI.Controllers
         public async Task<IActionResult> GetProfile()
         {
             var user = Guid.Parse(HttpContext.User.Identity.Name);
-            var doctor = _context.Doctors.FirstOrDefault(d => d.id == user);
+            var doctor = _context.Doctors
+                .Include(p => p.speciality)
+                .FirstOrDefault(d => d.id == user);
             var doc = new DoctorModel
             {
                 email = doctor.email,
@@ -152,6 +154,12 @@ namespace scrubsAPI.Controllers
                 id = doctor.id,
                 gender = doctor.gender,
                 phone = doctor.phone,
+                Speciality = new SpecialityModel
+                {
+                    id = doctor.speciality.id,
+                    name = doctor.speciality.name,
+                    createTime = doctor.speciality.creationTime,
+                }
             };
             return Ok(doc);
         }

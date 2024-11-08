@@ -9,5 +9,7 @@
         public Gender gender { get; set; }
         public DateTime creteTime { get; set; }
         public string phone { get; set; }
+
+        public SpecialityModel Speciality { get; set; }
     }
 }
