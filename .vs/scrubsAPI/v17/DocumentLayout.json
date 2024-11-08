@@ -3,6 +3,70 @@
   "WorkspaceRootPath": "D:\\c#proj\\scrubsAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\missedinspectionnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:missedinspectionnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\consultationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\consultationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\inspectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\inspectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\specialitycreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\specialitycreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\specialitiespagedlistmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\specialitiespagedlistmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\responcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\responcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\schemas\\tokenresponcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\tokenresponcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\specialitymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\specialitymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\patientmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\patientmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\logincredentialsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\logincredentialsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\inspectionpreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\inspectionpreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\doctormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\doctormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\diagnosistype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\diagnosistype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\inspectionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\inspectionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\schemas\\inspectioneditmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\inspectioneditmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,12 +79,56 @@
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\inspectionconsultationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\inspectioncommentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\inspectioncommentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\inspectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\inspectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\inspectioncommentcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\inspectioncommentcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\icdrootsreportfiltersmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\icdrootsreportfiltersmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\icd10searchmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\icd10searchmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\icd10recordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\icd10recordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\icd10jsondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\icd10jsondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\icd10dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\icd10dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\schemas\\doctorregistermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\doctorregistermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\doctoreditmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\doctoreditmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\diagnosismodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\diagnosismodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\diagnosiscreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\diagnosiscreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\consultationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\consultationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\consultationcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,6 +139,14 @@
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\conclusion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\commentcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\commentcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\icdrootsreportrecordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\icdrootsreportrecordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\commentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\commentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,52 +155,28 @@
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\commenteditmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\commentcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\commentcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\dictionarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\dictionarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\models\\consultation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:models\\consultation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\dictionarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\dictionarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\controllers\\consultationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:controllers\\consultationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\doctormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\doctormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\specialitycreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\specialitycreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\specialitiespagedlistmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\specialitiespagedlistmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\patientsorting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\patientsorting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\specialitymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\specialitymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\models\\speciality.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:models\\speciality.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\diagnosiscreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\diagnosiscreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -99,36 +191,16 @@
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:models\\icd10.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\models\\diagnosis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:models\\diagnosis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\models\\consultation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:models\\consultation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\schemas\\tokenresponcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\tokenresponcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\schemas\\responcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\responcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\authorization\\tokenstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:authorization\\tokenstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|d:\\c#proj\\scrubsapi\\missedinspectionnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:missedinspectionnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -145,10 +217,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\authorization\\authcheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:authorization\\authcheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\schemas\\doctorregistermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|solutionrelative:schemas\\doctorregistermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8134870F-4C6B-46CD-BD71-571CB5E68609}|scrubsAPI.csproj|D:\\c#proj\\scrubsAPI\\database\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -174,7 +242,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -185,211 +253,12 @@
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InspectionCreateModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionCreateModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\InspectionCreateModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionCreateModel.cs",
-              "RelativeToolTip": "Schemas\\InspectionCreateModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T13:36:43.418Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InspectionConsultationModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionConsultationModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\InspectionConsultationModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionConsultationModel.cs",
-              "RelativeToolTip": "Schemas\\InspectionConsultationModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T13:36:42.713Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PatientsController.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\PatientsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PatientsController.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\PatientsController.cs",
-              "RelativeToolTip": "Controllers\\PatientsController.cs",
-              "ViewState": "AQIAAMgAAAAAAAAAAAAIwPgAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T22:06:23.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "SpecialityCreateModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\SpecialityCreateModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\SpecialityCreateModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\SpecialityCreateModel.cs",
-              "RelativeToolTip": "Schemas\\SpecialityCreateModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:53:08.883Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CommentEditModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentEditModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\CommentEditModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentEditModel.cs",
-              "RelativeToolTip": "Schemas\\CommentEditModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:53:18.349Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CommentCreateModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentCreateModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\CommentCreateModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentCreateModel.cs",
-              "RelativeToolTip": "Schemas\\CommentCreateModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:53:16.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Conclusion.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\Conclusion.cs",
-              "RelativeDocumentMoniker": "Schemas\\Conclusion.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\Conclusion.cs",
-              "RelativeToolTip": "Schemas\\Conclusion.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:53:27.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CommentModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\CommentModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentModel.cs",
-              "RelativeToolTip": "Schemas\\CommentModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:53:20.687Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ConsultationCreateModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\ConsultationCreateModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\ConsultationCreateModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\ConsultationCreateModel.cs",
-              "RelativeToolTip": "Schemas\\ConsultationCreateModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:53:31.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "InspectionEditModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionEditModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\InspectionEditModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionEditModel.cs*",
-              "RelativeToolTip": "Schemas\\InspectionEditModel.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T16:06:33.332Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "InspectionController.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\InspectionController.cs",
-              "RelativeDocumentMoniker": "Controllers\\InspectionController.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\InspectionController.cs",
-              "RelativeToolTip": "Controllers\\InspectionController.cs",
-              "ViewState": "AQIAAKEAAAAAAAAAAAA9wK8AAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T09:29:43.496Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ReportController.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\ReportController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\ReportController.cs",
-              "RelativeToolTip": "Controllers\\ReportController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAwwF4AAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T09:23:29.197Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ConsultationController.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\ConsultationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ConsultationController.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\ConsultationController.cs",
-              "RelativeToolTip": "Controllers\\ConsultationController.cs",
-              "ViewState": "AQIAAAwBAAAAAAAAAAAmwKgAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T09:23:28.243Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "DictionaryController.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\DictionaryController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DictionaryController.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\DictionaryController.cs",
-              "RelativeToolTip": "Controllers\\DictionaryController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAwwJQAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T09:25:44.429Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "DoctorController.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\DoctorController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DoctorController.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\DoctorController.cs",
-              "RelativeToolTip": "Controllers\\DoctorController.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAowCYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T09:25:44.185Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 6,
               "Title": "SpecialitiesPagedListModel.cs",
               "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\SpecialitiesPagedListModel.cs",
               "RelativeDocumentMoniker": "Schemas\\SpecialitiesPagedListModel.cs",
@@ -402,214 +271,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Speciality.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Speciality.cs",
-              "RelativeDocumentMoniker": "Models\\Speciality.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Speciality.cs",
-              "RelativeToolTip": "Models\\Speciality.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "DocumentIndex": 5,
+              "Title": "SpecialityCreateModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\SpecialityCreateModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\SpecialityCreateModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\SpecialityCreateModel.cs",
+              "RelativeToolTip": "Schemas\\SpecialityCreateModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:56:13.302Z",
+              "WhenOpened": "2024-11-08T10:53:08.883Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "SpecialityModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\SpecialityModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\SpecialityModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\SpecialityModel.cs",
-              "RelativeToolTip": "Schemas\\SpecialityModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAATAAAA",
+              "DocumentIndex": 4,
+              "Title": "InspectionController.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\InspectionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InspectionController.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\InspectionController.cs",
+              "RelativeToolTip": "Controllers\\InspectionController.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAK8AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:52:41.287Z",
+              "WhenOpened": "2024-10-31T09:29:43.496Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DoctorModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\DoctorModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorModel.cs",
-              "RelativeToolTip": "Schemas\\DoctorModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "DocumentIndex": 3,
+              "Title": "PatientsController.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\PatientsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PatientsController.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\PatientsController.cs",
+              "RelativeToolTip": "Controllers\\PatientsController.cs",
+              "ViewState": "AQIAAOUBAAAAAAAAAAAuwM4BAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T11:34:05.911Z",
+              "WhenOpened": "2024-10-29T22:06:23.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "PatientSorting.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\PatientSorting.cs",
-              "RelativeDocumentMoniker": "Schemas\\PatientSorting.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\PatientSorting.cs",
-              "RelativeToolTip": "Schemas\\PatientSorting.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "ConsultationController.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\ConsultationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ConsultationController.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\ConsultationController.cs",
+              "RelativeToolTip": "Controllers\\ConsultationController.cs",
+              "ViewState": "AQIAAJgAAAAAAAAAAAAIwKgAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T11:35:07.65Z",
+              "WhenOpened": "2024-10-31T09:23:28.243Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "DiagnosisCreateModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\DiagnosisCreateModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\DiagnosisCreateModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\DiagnosisCreateModel.cs",
-              "RelativeToolTip": "Schemas\\DiagnosisCreateModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:53:34.487Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Icd10.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Icd10.cs",
-              "RelativeDocumentMoniker": "Models\\Icd10.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Icd10.cs",
-              "RelativeToolTip": "Models\\Icd10.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T12:54:32.059Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Doctor.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Doctor.cs",
-              "RelativeDocumentMoniker": "Models\\Doctor.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Doctor.cs",
-              "RelativeToolTip": "Models\\Doctor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T21:17:29.656Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Diagnosis.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Diagnosis.cs",
-              "RelativeDocumentMoniker": "Models\\Diagnosis.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Diagnosis.cs",
-              "RelativeToolTip": "Models\\Diagnosis.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T12:54:31.457Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Consultation.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Consultation.cs",
-              "RelativeDocumentMoniker": "Models\\Consultation.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Consultation.cs",
-              "RelativeToolTip": "Models\\Consultation.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T16:08:08.163Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Comment.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Comment.cs",
-              "RelativeDocumentMoniker": "Models\\Comment.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Comment.cs",
-              "RelativeToolTip": "Models\\Comment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T12:54:30.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Patient.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Patient.cs",
-              "RelativeDocumentMoniker": "Models\\Patient.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Patient.cs",
-              "RelativeToolTip": "Models\\Patient.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:55:15.244Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Inspection.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Inspection.cs",
-              "RelativeDocumentMoniker": "Models\\Inspection.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Inspection.cs",
-              "RelativeToolTip": "Models\\Inspection.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T00:58:56.171Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ResponceModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\ResponceModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\ResponceModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\ResponceModel.cs",
-              "RelativeToolTip": "Schemas\\ResponceModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:52:32.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T12:22:02.458Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "TokenResponceModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\TokenResponceModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\TokenResponceModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\TokenResponceModel.cs",
-              "RelativeToolTip": "Schemas\\TokenResponceModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T19:32:12.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "TokenStorage.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Authorization\\TokenStorage.cs",
-              "RelativeDocumentMoniker": "Authorization\\TokenStorage.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Authorization\\TokenStorage.cs",
-              "RelativeToolTip": "Authorization\\TokenStorage.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T20:41:49.548Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 1,
               "Title": "MissedInspectionNotification.cs",
               "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\MissedInspectionNotification.cs",
               "RelativeDocumentMoniker": "MissedInspectionNotification.cs",
@@ -622,7 +336,595 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReportController.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\ReportController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\ReportController.cs*",
+              "RelativeToolTip": "Controllers\\ReportController.cs*",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwEIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T09:23:29.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ResponceModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\ResponceModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\ResponceModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\ResponceModel.cs",
+              "RelativeToolTip": "Schemas\\ResponceModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:52:32.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TokenResponceModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\TokenResponceModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\TokenResponceModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\TokenResponceModel.cs",
+              "RelativeToolTip": "Schemas\\TokenResponceModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T19:32:12.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SpecialityModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\SpecialityModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\SpecialityModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\SpecialityModel.cs",
+              "RelativeToolTip": "Schemas\\SpecialityModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:52:41.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PatientModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\PatientModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\PatientModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\PatientModel.cs",
+              "RelativeToolTip": "Schemas\\PatientModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:55:24.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginCredentialsModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\LoginCredentialsModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\LoginCredentialsModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\LoginCredentialsModel.cs",
+              "RelativeToolTip": "Schemas\\LoginCredentialsModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:54:52.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "InspectionPreviewModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionPreviewModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\InspectionPreviewModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionPreviewModel.cs",
+              "RelativeToolTip": "Schemas\\InspectionPreviewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:53:51.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "InspectionModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\InspectionModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionModel.cs",
+              "RelativeToolTip": "Schemas\\InspectionModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:53:45.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "InspectionCommentModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionCommentModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\InspectionCommentModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionCommentModel.cs",
+              "RelativeToolTip": "Schemas\\InspectionCommentModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:43:40.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "InspectionCommentCreateModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionCommentCreateModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\InspectionCommentCreateModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionCommentCreateModel.cs",
+              "RelativeToolTip": "Schemas\\InspectionCommentCreateModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:43:37.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IcdRootsReportFiltersModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\IcdRootsReportFiltersModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\IcdRootsReportFiltersModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\IcdRootsReportFiltersModel.cs",
+              "RelativeToolTip": "Schemas\\IcdRootsReportFiltersModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:51:50.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "InspectionConsultationModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionConsultationModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\InspectionConsultationModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionConsultationModel.cs",
+              "RelativeToolTip": "Schemas\\InspectionConsultationModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:36:42.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DiagnosisType.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\DiagnosisType.cs",
+              "RelativeDocumentMoniker": "Schemas\\DiagnosisType.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\DiagnosisType.cs",
+              "RelativeToolTip": "Schemas\\DiagnosisType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:49:14.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DoctorModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\DoctorModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorModel.cs",
+              "RelativeToolTip": "Schemas\\DoctorModel.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAA8AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T11:34:05.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Icd10SearchModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\Icd10SearchModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\Icd10SearchModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\Icd10SearchModel.cs",
+              "RelativeToolTip": "Schemas\\Icd10SearchModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:51:43.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "InspectionCreateModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionCreateModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\InspectionCreateModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionCreateModel.cs",
+              "RelativeToolTip": "Schemas\\InspectionCreateModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:36:43.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "InspectionEditModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionEditModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\InspectionEditModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\InspectionEditModel.cs",
+              "RelativeToolTip": "Schemas\\InspectionEditModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T16:06:33.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Icd10RecordModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\Icd10RecordModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\Icd10RecordModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\Icd10RecordModel.cs",
+              "RelativeToolTip": "Schemas\\Icd10RecordModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:51:23.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Icd10JsonDTO.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\Icd10JsonDTO.cs",
+              "RelativeDocumentMoniker": "Schemas\\Icd10JsonDTO.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\Icd10JsonDTO.cs",
+              "RelativeToolTip": "Schemas\\Icd10JsonDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:51:22.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Icd10DTO.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\Icd10DTO.cs",
+              "RelativeDocumentMoniker": "Schemas\\Icd10DTO.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\Icd10DTO.cs",
+              "RelativeToolTip": "Schemas\\Icd10DTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:51:21.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Gender.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\Gender.cs",
+              "RelativeDocumentMoniker": "Schemas\\Gender.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\Gender.cs",
+              "RelativeToolTip": "Schemas\\Gender.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:51:20.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "DiagnosisModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\DiagnosisModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\DiagnosisModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\DiagnosisModel.cs",
+              "RelativeToolTip": "Schemas\\DiagnosisModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:47:54.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ConsultationModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\ConsultationModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\ConsultationModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\ConsultationModel.cs",
+              "RelativeToolTip": "Schemas\\ConsultationModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:47:28.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CommentCreateModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentCreateModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\CommentCreateModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentCreateModel.cs",
+              "RelativeToolTip": "Schemas\\CommentCreateModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:53:16.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DoctorEditModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorEditModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\DoctorEditModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorEditModel.cs",
+              "RelativeToolTip": "Schemas\\DoctorEditModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:39:46.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DoctorRegisterModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorRegisterModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\DoctorRegisterModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorRegisterModel.cs",
+              "RelativeToolTip": "Schemas\\DoctorRegisterModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T21:17:38.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IcdRootsReportRecordModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\IcdRootsReportRecordModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\IcdRootsReportRecordModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\IcdRootsReportRecordModel.cs",
+              "RelativeToolTip": "Schemas\\IcdRootsReportRecordModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:43:45.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Conclusion.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\Conclusion.cs",
+              "RelativeDocumentMoniker": "Schemas\\Conclusion.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\Conclusion.cs",
+              "RelativeToolTip": "Schemas\\Conclusion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:53:27.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "DiagnosisCreateModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\DiagnosisCreateModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\DiagnosisCreateModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\DiagnosisCreateModel.cs",
+              "RelativeToolTip": "Schemas\\DiagnosisCreateModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:53:34.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ConsultationCreateModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\ConsultationCreateModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\ConsultationCreateModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\ConsultationCreateModel.cs",
+              "RelativeToolTip": "Schemas\\ConsultationCreateModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:53:31.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "CommentModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\CommentModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentModel.cs",
+              "RelativeToolTip": "Schemas\\CommentModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:53:20.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "CommentEditModel.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentEditModel.cs",
+              "RelativeDocumentMoniker": "Schemas\\CommentEditModel.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\CommentEditModel.cs",
+              "RelativeToolTip": "Schemas\\CommentEditModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:53:18.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "DictionaryController.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\DictionaryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DictionaryController.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\DictionaryController.cs",
+              "RelativeToolTip": "Controllers\\DictionaryController.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAwwJQAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T09:25:44.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Consultation.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Consultation.cs",
+              "RelativeDocumentMoniker": "Models\\Consultation.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Consultation.cs",
+              "RelativeToolTip": "Models\\Consultation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T16:08:08.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 40,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Doctor.cs",
+              "RelativeDocumentMoniker": "Models\\Doctor.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Doctor.cs",
+              "RelativeToolTip": "Models\\Doctor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T21:17:29.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "DoctorController.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Controllers\\DoctorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DoctorController.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Controllers\\DoctorController.cs",
+              "RelativeToolTip": "Controllers\\DoctorController.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAowCYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T09:25:44.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Speciality.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Speciality.cs",
+              "RelativeDocumentMoniker": "Models\\Speciality.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Speciality.cs",
+              "RelativeToolTip": "Models\\Speciality.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:56:13.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "PatientSorting.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\PatientSorting.cs",
+              "RelativeDocumentMoniker": "Schemas\\PatientSorting.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\PatientSorting.cs",
+              "RelativeToolTip": "Schemas\\PatientSorting.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T11:35:07.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Icd10.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Icd10.cs",
+              "RelativeDocumentMoniker": "Models\\Icd10.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Icd10.cs",
+              "RelativeToolTip": "Models\\Icd10.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T12:54:32.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Diagnosis.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Diagnosis.cs",
+              "RelativeDocumentMoniker": "Models\\Diagnosis.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Diagnosis.cs",
+              "RelativeToolTip": "Models\\Diagnosis.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T12:54:31.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Comment.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Comment.cs",
+              "RelativeDocumentMoniker": "Models\\Comment.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Comment.cs",
+              "RelativeToolTip": "Models\\Comment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T12:54:30.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Patient.cs",
+              "RelativeDocumentMoniker": "Models\\Patient.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Patient.cs",
+              "RelativeToolTip": "Models\\Patient.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T10:55:15.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Inspection.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Models\\Inspection.cs",
+              "RelativeDocumentMoniker": "Models\\Inspection.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Models\\Inspection.cs",
+              "RelativeToolTip": "Models\\Inspection.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T00:58:56.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T12:22:02.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "TokenStorage.cs",
+              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Authorization\\TokenStorage.cs",
+              "RelativeDocumentMoniker": "Authorization\\TokenStorage.cs",
+              "ToolTip": "D:\\c#proj\\scrubsAPI\\Authorization\\TokenStorage.cs",
+              "RelativeToolTip": "Authorization\\TokenStorage.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T20:41:49.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
               "Title": "20241104164503_fixes4.cs",
               "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Migrations\\20241104164503_fixes4.cs",
               "RelativeDocumentMoniker": "Migrations\\20241104164503_fixes4.cs",
@@ -634,7 +936,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 51,
               "Title": "AuthOptions.cs",
               "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Authorization\\AuthOptions.cs",
               "RelativeDocumentMoniker": "Authorization\\AuthOptions.cs",
@@ -646,7 +948,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 53,
               "Title": "AuthCheck.cs",
               "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Authorization\\AuthCheck.cs",
               "RelativeDocumentMoniker": "Authorization\\AuthCheck.cs",
@@ -658,7 +960,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 52,
               "Title": "AuthFilter.cs",
               "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Authorization\\AuthFilter.cs",
               "RelativeDocumentMoniker": "Authorization\\AuthFilter.cs",
@@ -670,7 +972,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 54,
               "Title": "DbContext.cs",
               "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Database\\DbContext.cs",
               "RelativeDocumentMoniker": "Database\\DbContext.cs",
@@ -682,7 +984,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 56,
               "Title": "20241103233830_DelitedBannedTokkens.cs",
               "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Migrations\\20241103233830_DelitedBannedTokkens.cs",
               "RelativeDocumentMoniker": "Migrations\\20241103233830_DelitedBannedTokkens.cs",
@@ -694,7 +996,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 55,
               "Title": "20241103123757_fixes3.cs",
               "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Migrations\\20241103123757_fixes3.cs",
               "RelativeDocumentMoniker": "Migrations\\20241103123757_fixes3.cs",
@@ -703,18 +1005,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T12:37:57.758Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "DoctorRegisterModel.cs",
-              "DocumentMoniker": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorRegisterModel.cs",
-              "RelativeDocumentMoniker": "Schemas\\DoctorRegisterModel.cs",
-              "ToolTip": "D:\\c#proj\\scrubsAPI\\Schemas\\DoctorRegisterModel.cs",
-              "RelativeToolTip": "Schemas\\DoctorRegisterModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T21:17:38.305Z"
             }
           ]
         }

@@ -186,6 +186,14 @@ namespace scrubsAPI
                     {
                         return BadRequest("Patient is dead, he cant have next visit or dont have death time");
                     }
+                    if (_context.Inspections.Include(p => p.previousInspection).Any(p => p.previousInspection.id == id))
+                    {
+                        return BadRequest("Patient with existing visits after that cant be dead");
+                    }
+                    if (inspectionEdition.deathTime > DateTime.Now)
+                    {
+                        return BadRequest("Patient cant be dead in future");
+                    }
                     inspection.deathTime = inspectionEdition.deathTime;
                 }
                 else

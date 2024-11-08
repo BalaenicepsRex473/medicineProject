@@ -34,30 +34,36 @@ namespace scrubsAPI
         [HttpGet("icdrootsreport")]
         public async Task<IActionResult> GetIcdRootsReport([FromQuery] List<Guid> icdRoots, [FromQuery] DateTime start, [FromQuery] DateTime end)
         {
-            if (icdRoots == null || !icdRoots.Any() || !ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest("Some fields in request are invalid");
             }
 
-
-            var icd10s = new List<Icd10>();
             var icdIds = new List<Guid>();
-            var icd10Roots = _context.Icd10s.Where(i => i.parentId == null).Select(i => i.id).ToList();
-            foreach (var icd in icdRoots)
+
+            if (!icdRoots.Any())
             {
-                if (!icd10Roots.Contains(icd))
+                icdIds = _context.Icd10s.Select(i => i.id).ToList();
+            }
+            else
+            {
+                var icd10s = new List<Icd10>();
+                var icd10Roots = _context.Icd10s.Where(i => i.parentId == null).Select(i => i.id).ToList();
+                foreach (var icd in icdRoots)
                 {
-                    return BadRequest("Entered icd10 id isn't root element");
+                    if (!icd10Roots.Contains(icd))
+                    {
+                        return BadRequest("Entered icd10 id isn't root element");
+                    }
+                }
+                foreach (var icd in icdRoots)
+                {
+                    await GetIcdsByRoot(icd, icd10s);
+                    icdIds.AddRange(icd10s.Select(i => i.id));
+                    icd10s.Clear();
                 }
             }
-            foreach (var icd in icdRoots)
-            {
-                await GetIcdsByRoot(icd, icd10s);
-                icdIds.AddRange(icd10s.Select(i => i.id));
-                icd10s.Clear();
-            }
                 
-
 
             var inspections = await _context.Diagnoses
                 .Include(d => d.inspection)

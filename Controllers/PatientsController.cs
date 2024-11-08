@@ -251,7 +251,12 @@ namespace scrubsAPI
                     {
                         return BadRequest("Patient is dead, he cant have next visit or dont have death time");
                     }
+                    if (inspectionDTO.deathTime > DateTime.Now)
+                    {
+                        return BadRequest("Patient cant be dead in future");
+                    }
                     inspection.deathTime = inspectionDTO.deathTime;
+
                 }
                 else
                 {
@@ -288,11 +293,17 @@ namespace scrubsAPI
                         {
                             return BadRequest("There can be only one main diagnosis");
                         }
-                        
+
+                        var diagn = await _context.Icd10s.FirstOrDefaultAsync(m => m.id == diagnosis.icdDiagnosisId);
+                        if (diagn == null)
+                        {
+                            return BadRequest("There are no such disease");
+                        }
+
                         var diagnose = new Diagnosis
                         {
                             id = Guid.NewGuid(),
-                            icdDiagnosis = await _context.Icd10s.FirstOrDefaultAsync(m => m.id == diagnosis.icdDiagnosisId),
+                            icdDiagnosis = diagn,
                             inspection = inspection,
                             type = diagnosis.type,
                             description = diagnosis.description,
@@ -459,7 +470,10 @@ namespace scrubsAPI
         [HttpGet("{id}/inspections/search")]
         public async Task<IActionResult> SearchInspection(Guid id, string request = "")
         {
-
+            if (_context.Patients.FirstOrDefault(p => p.id == id) == null)
+            {
+                return NotFound("There are no such patients");
+            }
             var response = _context.Inspections
                 .Where(d => d.patient.id == id)
                 .Select(d => new InspectionShortModel
