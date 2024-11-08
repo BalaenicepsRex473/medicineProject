@@ -4,7 +4,7 @@ namespace scrubsAPI
 {
     public class InspectionEditModel
     {
-        public string? anamesis { get; set; }
+        [Required]public string anamesis { get; set; }
         [Required] public string complaints { get; set; }
         [Required] public string treatment { get; set; }
         [Required] public Conclusion conclusion { get; set; }

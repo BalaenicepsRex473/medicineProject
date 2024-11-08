@@ -173,9 +173,9 @@ namespace scrubsAPI
 
                 if (inspectionEdition.conclusion.ToString() == "Recovery")
                 {
-                    if (inspectionEdition.nextVisitDate.HasValue || inspectionEdition.deathTime.HasValue)
+                    if (inspectionEdition.deathTime.HasValue)
                     {
-                        return BadRequest("Patient has recoveried, he is not dead or cant have next visit");
+                        return BadRequest("Patient has recoveried, he is not dead");
                     }
                     inspection.nextVisitDate = null;
                     inspection.deathTime = null;
@@ -196,10 +196,8 @@ namespace scrubsAPI
                     }
                     inspection.nextVisitDate = inspectionEdition.nextVisitDate;
                 }
-                if (inspectionEdition.anamesis != null)
-                {
-                    inspection.anamesis = inspectionEdition.anamesis;
-                }
+
+                inspection.anamesis = inspectionEdition.anamesis;
                 inspection.complaints = inspectionEdition.complaints;
                 inspection.conclusion = inspectionEdition.conclusion;
                 inspection.treatment = inspectionEdition.treatment;

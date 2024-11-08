@@ -238,9 +238,9 @@ namespace scrubsAPI
                 inspection.conclusion = inspectionDTO.conclusion;
                 if (inspection.conclusion.ToString() == "Recovery")
                 {
-                    if (inspectionDTO.nextVisitDate.HasValue || inspectionDTO.deathTime.HasValue)
+                    if (inspectionDTO.deathTime.HasValue)
                     {
-                        return BadRequest("Patient has recoveried, he is not dead or cant have next visit");
+                        return BadRequest("Patient has recoveried, he is not dead");
                     }
                     inspection.nextVisitDate = null;
                     inspection.deathTime = null;
