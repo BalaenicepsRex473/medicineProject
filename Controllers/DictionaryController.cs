@@ -24,48 +24,48 @@ namespace scrubsAPI.Controllers
             _context = context;
         }
 
-        //Чисто парсинг icd с сайта миндздрава 
-        //[HttpPost("parseAll")]
-        //public async Task<IActionResult> PostICD10Data([FromBody] List<Icd10JsonDTO> icd10Data)
+        //чисто парсинг icd с сайта миндздрава 
+        //[httppost("parseall")]
+        //public async task<iactionresult> posticd10data([frombody] list<icd10jsondto> icd10data)
         //{
-        //    var icd10Codes = icd10Data.Select(code => new Icd10
+        //    var icd10codes = icd10data.select(code => new icd10
         //    {
-        //        id = Guid.NewGuid(),
-        //        code = code.MKB_CODE,
-        //        name = code.MKB_NAME,
-        //        createTime = DateTime.UtcNow,
-        //        idFromJson = code.ID,
-        //        parentIdFromJson = code.ID_PARENT.HasValue ? code.ID_PARENT.Value : null
-        //    }).ToList();
+        //        id = guid.newguid(),
+        //        code = code.mkb_code,
+        //        name = code.mkb_name,
+        //        createtime = datetime.utcnow,
+        //        idfromjson = code.id,
+        //        parentidfromjson = code.id_parent.hasvalue ? code.id_parent.value : null
+        //    }).tolist();
 
 
-        //    await PopulateDatabase(_context, icd10Codes);
+        //    await populatedatabase(_context, icd10codes);
 
-        //    return Ok();
+        //    return ok();
         //}
 
 
-        //private static async Task PopulateDatabase(ScrubsDbContext context, List<Icd10> icd10Data)
+        //private static async task populatedatabase(scrubsdbcontext context, list<icd10> icd10data)
         //{
 
-        //    await context.Icd10s.AddRangeAsync(icd10Data);
-        //    await context.SaveChangesAsync();
+        //    await context.icd10s.addrangeasync(icd10data);
+        //    await context.savechangesasync();
 
 
-        //    foreach (var code in icd10Data)
+        //    foreach (var code in icd10data)
         //    {
-        //        if (code.parentIdFromJson.HasValue)
+        //        if (code.parentidfromjson.hasvalue)
         //        {
 
-        //            var parent = await context.Icd10s.FirstOrDefaultAsync(p => p.idFromJson == code.parentIdFromJson);
+        //            var parent = await context.icd10s.firstordefaultasync(p => p.idfromjson == code.parentidfromjson);
         //            if (parent != null)
         //            {
-        //                code.parentId = parent.id;
+        //                code.parentid = parent.id;
         //                code.parent = parent;
         //            }
         //        }
         //    }
-        //    await context.SaveChangesAsync();
+        //    await context.savechangesasync();
         //}
 
 

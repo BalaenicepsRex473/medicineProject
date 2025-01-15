@@ -13,9 +13,9 @@ using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<ScrubsDbContext> (options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDbContext<ScrubsDbContext>(
-               options => options.UseSqlite("Data Source=Application.db;Cache=Shared"));
 
 builder.Services.AddQuartz(q =>
 {
@@ -24,7 +24,7 @@ builder.Services.AddQuartz(q =>
     q.AddTrigger(opts => opts
         .ForJob(jobKey)
         .WithIdentity("MissedInspectionNotificationTrigger")
-        .WithSimpleSchedule(x => x.WithIntervalInHours(1).RepeatForever()));
+        .WithSimpleSchedule(x => x.WithIntervalInMinutes(1).RepeatForever()));
 });
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
